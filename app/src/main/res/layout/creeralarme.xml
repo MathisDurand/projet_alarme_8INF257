@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        > <!--android:background="@xml/font"-->
+        android:background="@xml/font"
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,8 +24,8 @@
             android:layout_marginHorizontal="7dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="2"
-
-            android:padding="10dp"> <!--android:background="@xml/arrondi_principal"-->
+            android:background="@xml/arrondi_principal"
+            android:padding="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -34,9 +35,9 @@
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-
+                    android:background="@xml/contenu"
                     android:layout_gravity="center"
-                    android:padding="10dp"> <!--android:background="@xml/contenu"-->
+                    android:padding="10dp">
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,11 +124,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
                     android:layout_marginTop="10dp"
-
+                    android:background="@xml/contenu"
                     android:padding="10dp"
                     android:elevation="5dp"
                     android:layout_marginBottom="7dp"
-                    android:onClick="choixsonnerie"> <!--android:background="@xml/contenu"-->
+                    android:onClick="choixsonnerie">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -152,11 +153,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
                     android:layout_marginTop="10dp"
-
+                    android:background="@xml/contenu"
                     android:padding="10dp"
                     android:elevation="5dp"
                     android:layout_marginBottom="7dp"
-                    android:onClick="desactivation"> <!--android:background="@xml/contenu"-->
+                    android:onClick="desactivation">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,14 +180,14 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:background="@xml/boutonsave"
                     android:layout_gravity="center"
                     android:elevation="5dp"
                     android:text="Sauvegarder"
                     android:textSize="20dp"
                     android:layout_marginTop="20dp"
                     android:paddingHorizontal="30dp"
-                    > <!--android:background="@xml/boutonsave"-->
+                    >
 
                 </Button>
 
@@ -198,7 +199,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
+            android:background="@xml/menu_arrondi"
             android:orientation="horizontal"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
@@ -206,7 +207,7 @@
             android:layout_marginTop="0dp"
             android:layout_gravity="end"
             android:paddingTop="0dp"
-            > <!--android:background="@xml/menu_arrondi"-->
+            >
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"

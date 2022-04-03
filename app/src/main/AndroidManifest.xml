@@ -24,12 +24,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Projet_alarme_8INF257">
         <activity
             android:name=".MainActivity"
             android:label="oui"
             android:exported="true"
-            android:theme="@style/Theme.Projet_Android_8INF257">
+>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
