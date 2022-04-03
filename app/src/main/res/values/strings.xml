@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">projet_alarme_8INF257</string>
+    <string name="radioFrench">French</string>
+    <string name="radioEnglish">English</string>
+    <string name="selectLanguage">Select your language</string>
+    <string name="butonNameAlarms">Alarms</string>
+    <string name="butonNameParameters">Parameters</string>
 </resources>
