@@ -68,6 +68,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <activity
+            android:name=".ChangeThemeActivity"
+            android:label="theme"
+            android:parentActivityName=".Parametre">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Parametre"/>
+        </activity>
+        <activity
+            android:name=".LanguageActivity"
+            android:label="Langue"
+            android:parentActivityName=".Parametre">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Parametre"/>
+        </activity>
     </application>
 
 </manifest>

@@ -29,24 +29,26 @@
             android:orientation="vertical"><!--android:background="@xml/arrondi_principal"-->
 
             <Button
+                android:id="@+id/param_to_languages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:text="Langues"
                 android:textSize="60dip"
-
+                android:onClick="langue"
                 android:padding="10dp"
                 android:elevation="5dp"
                 android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
 
             </Button>
             <Button
+                android:id="@+id/param_to_themes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:text="Thèmes"
                 android:textSize="60dip"
-
+                android:onClick="theme"
                 android:padding="10dp"
                 android:elevation="5dp"
                 android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
