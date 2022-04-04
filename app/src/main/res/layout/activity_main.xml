@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@xml/font"
         >
         <TextView
             android:layout_width="match_parent"
@@ -26,26 +27,109 @@
             android:layout_marginHorizontal="7dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="2"
-
-            android:padding="10dp"> <!--android:background="@xml/arrondi_principal"-->
+            android:background="@xml/arrondi_principal"
+            android:padding="10dp">
             <LinearLayout
                 android:id="@+id/show_alarms"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
                 android:orientation="vertical">
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="9:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
 
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="10:35"
+                    android:textSize="60dip"
+                    android:background="@xml/contenu"
+                    android:padding="10dp"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="7dp">
+
+                </Switch>
 
                 <Button
                     android:id="@+id/main_to_creeralarme"
                     android:layout_width="47dp"
                     android:layout_height="wrap_content"
-
+                    android:background="@xml/boutonplus"
                     android:layout_gravity="center"
                     android:elevation="5dp"
                     android:text="+"
                     android:textSize="20dp"
-                    > <!--android:background="@xml/boutonplus"-->
+                    >
 
                 </Button>
 
@@ -54,7 +138,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
+            android:background="@xml/menu_arrondi"
             android:orientation="horizontal"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
@@ -62,7 +146,7 @@
             android:layout_marginTop="0dp"
             android:layout_gravity="end"
             android:paddingTop="0dp"
-            ><!--android:background="@xml/menu_arrondi"-->
+            >
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
