@@ -30,24 +30,12 @@
             android:background="@xml/arrondi_principal"
             android:padding="10dp">
             <LinearLayout
-                android:id="@+id/show_alarms"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:orientation="vertical">
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="9:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
 
-                </Switch>
-                <Switch
+
+                <!--<Switch
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -58,73 +46,19 @@
                     android:elevation="5dp"
                     android:layout_marginBottom="7dp">
 
-                </Switch>
-                <Switch
+                </Switch>-->
+                <LinearLayout
+                    android:id="@+id/show_alarms"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/main_to_creeralarme"
                     android:layout_width="47dp"
                     android:layout_height="wrap_content"
-                    android:background="@xml/boutonplus"
+
                     android:layout_gravity="center"
                     android:elevation="5dp"
                     android:text="+"

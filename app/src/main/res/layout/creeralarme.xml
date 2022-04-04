@@ -39,6 +39,7 @@
                     android:layout_gravity="center"
                     android:padding="10dp">
                     <EditText
+                        android:id="@+id/creerAlarmHeure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -51,6 +52,7 @@
                         android:textSize="30dp">
                     </TextView>
                     <EditText
+                        android:id="@+id/creerAlarmMinute"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

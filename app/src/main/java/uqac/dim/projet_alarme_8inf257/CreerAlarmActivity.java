@@ -4,9 +4,12 @@ package uqac.dim.projet_alarme_8inf257;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,7 +17,8 @@ import java.sql.SQLException;
 public class CreerAlarmActivity extends Activity {
     private int idRingtone = 0;
     private int idMiniGame = 0;
-    private String hour = "00:00";
+    private String hour = "00";
+    private String minute = "00";
     private DBAlarmHandler db;
 
     static final String DATA = "data";
@@ -49,6 +53,44 @@ public class CreerAlarmActivity extends Activity {
                 sauvegarder();
             }
         });
+
+        EditText txtH = (EditText) findViewById(R.id.creerAlarmHeure);
+        txtH.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                    hour = s.toString();
+                Log.v("DIM",hour);
+            }
+        });
+
+        EditText txtM = (EditText) findViewById(R.id.creerAlarmMinute);
+        txtM.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if(s.length() != 0)
+                    minute = s.toString();
+                Log.v("DIM",minute);
+            }
+        });
     }
     public void creeralarme(View activity_main) {
         Intent intent = new Intent(CreerAlarmActivity.this, CreerAlarmActivity.class);
@@ -74,7 +116,8 @@ public class CreerAlarmActivity extends Activity {
     }
 
     public void sauvegarder(){
-        db.addNewAlarm(this.hour, this.idMiniGame, this.idRingtone, 1);
+        Log.v("DIM", "Hour chaged : " + this.hour + ":" + this.minute);
+        db.addNewAlarm(this.hour + ":" + this.minute, this.idMiniGame, this.idRingtone, 1);
         this.getParent().recreate();
         finish();
     }
