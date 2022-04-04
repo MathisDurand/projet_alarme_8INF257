@@ -118,7 +118,8 @@ public class CreerAlarmActivity extends Activity {
     public void sauvegarder(){
         Log.v("DIM", "Hour chaged : " + this.hour + ":" + this.minute);
         db.addNewAlarm(this.hour + ":" + this.minute, this.idMiniGame, this.idRingtone, 1);
-        this.getParent().recreate();
+        if (this.getParent() != null)
+            this.getParent().recreate();
         finish();
     }
 
