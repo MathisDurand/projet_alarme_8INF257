@@ -29,94 +29,12 @@
 
             android:padding="10dp"> <!--android:background="@xml/arrondi_principal"-->
             <LinearLayout
+                android:id="@+id/show_alarms"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
                 android:orientation="vertical">
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="9:35"
-                    android:textSize="60dip"
 
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch> <!--android:background="@xml/contenu" -->
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-
-                </Switch> <!--android:background="@xml/contenu"-->
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
-
-                </Switch>
-                <Switch
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="10:35"
-                    android:textSize="60dip"
-
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
-
-                </Switch>
 
                 <Button
                     android:id="@+id/main_to_creeralarme"

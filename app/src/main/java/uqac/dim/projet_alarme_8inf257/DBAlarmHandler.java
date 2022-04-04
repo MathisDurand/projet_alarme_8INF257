@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class DBAlarmHandler extends SQLiteOpenHelper {
 
@@ -31,6 +33,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
     private static final String HOUR_SAVED_ALARMS = "hourSaved";
     private static final String ID_MINIGAME_SAVED_ALARMS = "idMiniGame";
     private static final String ID_RINGTONE_SAVED_ALARMS = "idRingtone";
+    private static final String ENABLE_SAVED_ALARMS = "enable";
 
     private static final String TABLE_NAME_MINIGAMES = "savedAlarms";
     private static final String ID_MINIGAMES = "id";
@@ -139,7 +142,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {}
 
     // this method is use to add new course to our sqlite database.
-    public void addNewAlarm(String hour, int minigameID, int ringtoneID) {
+    public void addNewAlarm(String hour, int minigameID, int ringtoneID, int enable) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -148,7 +151,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         values.put(HOUR_SAVED_ALARMS, hour);
         values.put(ID_MINIGAME_SAVED_ALARMS, minigameID);
         values.put(ID_RINGTONE_SAVED_ALARMS, ringtoneID);
+        values.put(ENABLE_SAVED_ALARMS, enable);
 
+        Log.v("DIM", "\n------INSERT------\nHeure : " + hour + "\nRingtoneID : " + ringtoneID + "\nMiniGameID : " + minigameID);
         db.insert(TABLE_NAME_SAVED_ALARMS, null, values);
 
         db.close();
@@ -178,6 +183,25 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME_RINGTONE, null, values);
 
         db.close();
+    }
+
+
+    public LinkedList<Alarm> selectAllAlarms(){
+        LinkedList<Alarm> res = new LinkedList();
+        Cursor cursor = myDataBase.rawQuery("select * from savedAlarms",null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                int id = Integer.valueOf(cursor.getString(0));
+                String hourSaved = cursor.getString(1);
+                int idMiniGame = Integer.valueOf(cursor.getString(2));
+                int idRingtone = Integer.valueOf(cursor.getString(3));
+                int enable = Integer.valueOf(cursor.getString(4));
+                res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable));
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return res;
     }
 
     @Override
@@ -227,10 +251,11 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
             do {
                 String id = cursor.getString(0);
-                String nom = cursor.getString(1);
-                String niveau = cursor.getString(2);
+                String hourSaved = cursor.getString(1);
+                String idMiniGame = cursor.getString(2);
+                String idRingtone = cursor.getString(3);
 
-                sb.append("\n").append(id).append("\n").append(nom).append("\n").append(niveau);
+                sb.append("\n").append(id).append("\n").append(hourSaved).append("\n").append(idMiniGame).append(idRingtone);
             } while (cursor.moveToNext());
             cursor.close();
         }

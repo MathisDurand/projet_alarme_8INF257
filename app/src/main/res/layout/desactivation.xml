@@ -26,11 +26,12 @@
 
             android:padding="10dp"> <!--android:background="@xml/arrondi_principal"-->
             <RadioGroup
+                android:id="@+id/MiniGameChoice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:orientation="vertical">
                 <RadioButton
+                    android:id="@+id/MG0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -42,6 +43,7 @@
                     android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/MG1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -53,6 +55,7 @@
                     android:layout_marginBottom="7dp"> <!--android:background="@xml/contenu"-->
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/MG2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -65,6 +68,12 @@
                 </RadioButton>
             </RadioGroup>
         </ScrollView>
+        <Button
+            android:id="@+id/OkMiniGame"
+            android:layout_width="match_parent"
+            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:text="Valider"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
