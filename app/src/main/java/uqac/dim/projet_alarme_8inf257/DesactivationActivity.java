@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 public class DesactivationActivity extends Activity {
     private int selectedMiniGame;
+    private int idRingtone = 0;
 
     static final String DATA = "data";
 
@@ -18,7 +19,22 @@ public class DesactivationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.desactivation);
 
+        this.idRingtone = getIntent().getIntExtra(DATA, this.idRingtone);
+
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.MiniGameChoice);
+        switch(idRingtone){
+            case 0:
+                radioGroup.check(R.id.MG0);
+                break;
+            case 1:
+                radioGroup.check(R.id.MG1);
+                break;
+            case 2:
+                radioGroup.check(R.id.MG2);
+                break;
+            default:
+        }
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override

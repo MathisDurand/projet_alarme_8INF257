@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 public class ChoixSonnerieActivity extends Activity {
     private int selectedRingtone;
+    private int idRingtone = 0;
 
     static final String DATA = "data";
 
@@ -19,6 +20,20 @@ public class ChoixSonnerieActivity extends Activity {
         setContentView(R.layout.choixsonnerie);
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RingtoneChoice);
+        this.idRingtone = getIntent().getIntExtra(DATA, this.idRingtone);
+
+        switch(idRingtone){
+            case 0:
+                radioGroup.check(R.id.RT0);
+                break;
+            case 1:
+                radioGroup.check(R.id.RT1);
+                break;
+            case 2:
+                radioGroup.check(R.id.RT2);
+                break;
+            default:
+        }
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
