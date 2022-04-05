@@ -22,8 +22,13 @@ import java.sql.SQLException;
         private DBAlarmHandler db;
 
         static final String DATA = "data";
+        static final String IDR = "idRingstone";
+        static final String IDM = "idMiniGame";
+        static final String HOUR = "hour";
+        static final String MINUTE = "minute";
         static final int PICK_RINGTONE_REQUEST = 0;
         static final int PICK_MINIGAME_REQUEST = 1;
+
         private static final String TABLE_NAME_SAVED_ALARMS = "savedAlarms";
         private static final String ID_SAVED_ALARMS = "id";
         private static final String HOUR_SAVED_ALARMS = "hourSaved";
@@ -37,6 +42,11 @@ import java.sql.SQLException;
             setContentView(R.layout.creeralarme);
 
             idAlarm = this.getIntent().getIntExtra(DATA, idAlarm);
+            minute = this.getIntent().getStringExtra(MINUTE);
+            hour = this.getIntent().getStringExtra(HOUR);
+            idRingtone = this.getIntent().getIntExtra(IDR, idRingtone);
+            idMiniGame = this.getIntent().getIntExtra(IDM, idMiniGame);
+
             Log.v("DIM", idAlarm + "");
 
             db = new DBAlarmHandler(this);
@@ -64,6 +74,7 @@ import java.sql.SQLException;
             });
 
             EditText txtH = (EditText) findViewById(R.id.creerAlarmHeure);
+            txtH.setText(hour);
             txtH.addTextChangedListener(new TextWatcher() {
 
                 @Override
@@ -92,6 +103,7 @@ import java.sql.SQLException;
             });
 
             EditText txtM = (EditText) findViewById(R.id.creerAlarmMinute);
+            txtM.setText(minute);
             txtM.addTextChangedListener(new TextWatcher() {
 
                 @Override

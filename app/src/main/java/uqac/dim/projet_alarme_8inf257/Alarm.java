@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,8 +19,13 @@ public class Alarm {
     private int idMiniGame;
     private int idRingtone;
     private int enable;
+
     private DBAlarmHandler db;
     static final String DATA = "data";
+    static final String IDR = "idRingstone";
+    static final String IDM = "idMiniGame";
+    static final String HOUR = "hour";
+    static final String MINUTE = "minute";
 
     public Alarm(int id, String h, int i_mg, int i_r, int e, DBAlarmHandler db){
         this.id = id;
@@ -112,6 +118,10 @@ public class Alarm {
     public void clickToModify(Context ctx){
         Intent intent = new Intent(ctx, ModifierAlarmActivity.class);
         intent.putExtra(DATA, this.id);
+        intent.putExtra(IDR, this.idRingtone);
+        intent.putExtra(IDM, this.idMiniGame);
+        intent.putExtra(HOUR, this.heure.substring(0, 2));
+        intent.putExtra(MINUTE, this.heure.substring(3, 5));
         ctx.startActivity(intent);
     }
 
