@@ -2,8 +2,11 @@ package uqac.dim.projet_alarme_8inf257;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -16,6 +19,7 @@ public class Alarm {
     private int idRingtone;
     private int enable;
     private DBAlarmHandler db;
+    static final String DATA = "data";
 
     public Alarm(int id, String h, int i_mg, int i_r, int e, DBAlarmHandler db){
         this.id = id;
@@ -54,15 +58,6 @@ public class Alarm {
         res.setLayoutParams(lp);
         res.setOrientation(LinearLayout.VERTICAL);
         res.setPadding(20,20,20,20);
-        /*android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="50"
-        android:text="10:35"
-        android:textSize="60dip"
-        android:background="@xml/contenu"
-        android:padding="10dp"
-        android:elevation="5dp"
-        android:layout_marginBottom="7dp"*/
 
         Switch s = new Switch(ctx);
         s.setChecked(this.enable != 0);
@@ -89,10 +84,41 @@ public class Alarm {
         tv.setText("Sonnerie : " + this.idRingtone +" | "+ "Mini-jeu : " + this.idMiniGame);
         tv.setTextColor(Color.BLACK);
 
+        Button btnM = new Button(ctx);
+        btnM.setText("Modifier");
+        btnM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickToModify(ctx);
+            }
+        });
+        Button btnS = new Button(ctx);
+        btnS.setText("Supprimer");
+        btnS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteAlarm(ctx);
+            }
+        });
+
         res.addView(s);
         res.addView(tv);
+        res.addView(btnM);
+        res.addView(btnS);
         res.setBackground(ctx.getDrawable(R.xml.contenu));
         return res;
+    }
+
+    public void clickToModify(Context ctx){
+        Intent intent = new Intent(ctx, ModifierAlarmActivity.class);
+        intent.putExtra(DATA, this.id);
+        ctx.startActivity(intent);
+    }
+
+    public void deleteAlarm(Context ctx){
+        db.deleteByID(id);
+        Intent intent = new Intent(ctx, MainActivity.class);
+        ctx.startActivity(intent);
     }
 
     public void changeEnable(boolean enable){

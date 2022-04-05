@@ -50,6 +50,10 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         this.myContext = context;
     }
 
+    public SQLiteDatabase getMyDataBase() {
+        return myDataBase;
+    }
+
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
@@ -218,6 +222,10 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         //myDataBase.execSQL("update " + TABLE_NAME_SAVED_ALARMS + " set " + ENABLE_SAVED_ALARMS + " = 1 where " + ID_SAVED_ALARMS + " = " + id, null);
         Log.v("DIM", getDataDeLaBD());
         Log.v("DIM", "enable alarm with id : "+id);
+    }
+
+    public void deleteByID(int id){
+        myDataBase.delete(TABLE_NAME_SAVED_ALARMS, ID_SAVED_ALARMS+" = ?", new String[]{String.valueOf(id)});
     }
 
     @Override
