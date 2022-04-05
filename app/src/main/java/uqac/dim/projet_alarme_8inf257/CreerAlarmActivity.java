@@ -58,7 +58,13 @@ public class CreerAlarmActivity extends Activity {
         txtH.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+                if (s.length() != 0){
+                    if(Integer.parseInt(s.toString()) >= 24){
+                        txtH.setText("00");
+                    }
+                }
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -67,8 +73,11 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                if(s.length() != 0)
+                if((s.length() != 0) && (Integer.parseInt(s.toString()) < 24))
                     hour = s.toString();
+                if(s.length() == 1){
+                    hour = "0" + hour;
+                }
                 Log.v("DIM",hour);
             }
         });
@@ -77,7 +86,13 @@ public class CreerAlarmActivity extends Activity {
         txtM.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+                if (s.length() != 0){
+                    if(Integer.parseInt(s.toString()) >= 60){
+                        txtM.setText("00");
+                    }
+                }
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -86,8 +101,11 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                if(s.length() != 0)
+                if((s.length() != 0) && (Integer.parseInt(s.toString()) < 60))
                     minute = s.toString();
+                if(s.length() == 1){
+                    minute = "0" + minute;
+                }
                 Log.v("DIM",minute);
             }
         });
@@ -118,9 +136,8 @@ public class CreerAlarmActivity extends Activity {
     public void sauvegarder(){
         Log.v("DIM", "Hour chaged : " + this.hour + ":" + this.minute);
         db.addNewAlarm(this.hour + ":" + this.minute, this.idMiniGame, this.idRingtone, 1);
-        if (this.getParent() != null)
-            this.getParent().recreate();
-        finish();
+        Intent intent = new Intent(CreerAlarmActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

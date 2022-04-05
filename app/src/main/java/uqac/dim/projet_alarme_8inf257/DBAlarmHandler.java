@@ -188,7 +188,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
 
     public LinkedList<Alarm> selectAllAlarms(){
         LinkedList<Alarm> res = new LinkedList();
-        Cursor cursor = myDataBase.rawQuery("select * from savedAlarms",null);
+        Cursor cursor = myDataBase.rawQuery("select * from " + TABLE_NAME_SAVED_ALARMS + " order by " + HOUR_SAVED_ALARMS,null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
@@ -197,11 +197,27 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
                 int idMiniGame = Integer.valueOf(cursor.getString(2));
                 int idRingtone = Integer.valueOf(cursor.getString(3));
                 int enable = Integer.valueOf(cursor.getString(4));
-                res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable));
+                res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable, this));
             } while (cursor.moveToNext());
             cursor.close();
         }
         return res;
+    }
+
+    public void disableByID(int id){
+        ContentValues cv = new ContentValues();
+        cv.put(ENABLE_SAVED_ALARMS,0);
+        myDataBase.update(TABLE_NAME_SAVED_ALARMS, cv, ID_SAVED_ALARMS+" = ?", new String[]{String.valueOf(id)});
+        Log.v("DIM", getDataDeLaBD());
+        Log.v("DIM", "disable alarm with id : "+id);
+    }
+    public void enableByID(int id){
+        ContentValues cv = new ContentValues();
+        cv.put(ENABLE_SAVED_ALARMS,1);
+        myDataBase.update(TABLE_NAME_SAVED_ALARMS, cv, ID_SAVED_ALARMS+" = ?", new String[]{String.valueOf(id)});
+        //myDataBase.execSQL("update " + TABLE_NAME_SAVED_ALARMS + " set " + ENABLE_SAVED_ALARMS + " = 1 where " + ID_SAVED_ALARMS + " = " + id, null);
+        Log.v("DIM", getDataDeLaBD());
+        Log.v("DIM", "enable alarm with id : "+id);
     }
 
     @Override
@@ -254,8 +270,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
                 String hourSaved = cursor.getString(1);
                 String idMiniGame = cursor.getString(2);
                 String idRingtone = cursor.getString(3);
+                String enable = cursor.getString(4);
 
-                sb.append("\n").append(id).append("\n").append(hourSaved).append("\n").append(idMiniGame).append(idRingtone);
+                sb.append("\n").append(id).append("\n").append(hourSaved).append("\n").append(idMiniGame).append("\n").append(idRingtone).append("\n").append(enable);
             } while (cursor.moveToNext());
             cursor.close();
         }
