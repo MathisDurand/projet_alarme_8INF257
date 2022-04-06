@@ -24,8 +24,8 @@ public class LanguageActivity extends Activity {
         selectLangText = findViewById(R.id.TitleTheme);
         btnFrench = findViewById(R.id.RadioButtonFrench);
         btnEnglish = findViewById(R.id.RadioButtonEnglish);
-        btn1 = findViewById(R.id.ButtonTheme1);
-        btn2 = findViewById(R.id.ButtonTheme2);
+        btn1 = findViewById(R.id.AlarmeButton);
+        btn2 = findViewById(R.id.ParametersButton);
         // setting up on click listener event over the button
         // in order to change the language with the help of
         // LocaleHelper class
