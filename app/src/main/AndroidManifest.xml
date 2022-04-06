@@ -3,6 +3,10 @@
     package="uqac.dim.projet_alarme_8inf257">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_alarme_8INF257">
+        <receiver android:name=".AlarmReciever" />
         <activity
             android:name=".MainActivity"
             android:label="Alarme_8INF257"
             android:exported="true"
+
 >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +47,14 @@
         <activity
             android:name=".CreerAlarmActivity"
             android:label="creeralarme"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:label="Result"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

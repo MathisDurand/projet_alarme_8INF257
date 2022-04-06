@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout ll = (LinearLayout) findViewById(R.id.show_alarms);
         for (Alarm elt : allAlarms){
             ll.addView(elt.display(this));
+            elt.updateAlarmStatus(this);
         }
     }
 

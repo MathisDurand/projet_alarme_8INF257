@@ -1,9 +1,14 @@
 package uqac.dim.projet_alarme_8inf257;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,9 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class Alarm {
     private int id = 0;
@@ -19,6 +27,15 @@ public class Alarm {
     private int idMiniGame;
     private int idRingtone;
     private int enable;
+    private Intent intentAlarm;
+    private PendingIntent pending;
+    BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context, "Alarm worked", Toast.LENGTH_LONG).show();
+        }
+    };
 
     private DBAlarmHandler db;
     static final String DATA = "data";
@@ -34,6 +51,9 @@ public class Alarm {
         this.idRingtone = i_r;
         this.enable = e;
         this.db = db;
+
+        this.intentAlarm=new Intent(Intent.ACTION_VIEW);
+        this.intentAlarm.setData(Uri.parse("http://www.games-workshop.com"));
     }
 
     public int getId() {
@@ -78,7 +98,7 @@ public class Alarm {
 
         s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                changeEnable(isChecked);
+                changeEnable(isChecked, ctx);
             }
         });
 
@@ -129,17 +149,58 @@ public class Alarm {
         db.deleteByID(id);
         Intent intent = new Intent(ctx, MainActivity.class);
         ctx.startActivity(intent);
+        this.unsetAlarm(ctx);
     }
 
-    public void changeEnable(boolean enable){
+    public void changeEnable(boolean enable, Context ctx){
         if (enable){
             this.enable = 1;
             this.db.enableByID(this.id);
+            this.setAlarm(ctx);
         }
         else {
             this.enable = 0;
             this.db.disableByID(this.id);
+            this.unsetAlarm(ctx);
         }
     }
 
+    public void updateAlarmStatus(Context ctx){
+        if(this.enable == 0){
+            this.unsetAlarm(ctx);
+        }
+        else{
+            this.setAlarm(ctx);
+        }
+    }
+
+    public void setAlarm(Context ctx){
+        Log.v("DIM", "Alarm set");
+        AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(ctx, AlarmReciever.class);
+        intent.putExtra("data", this.toString());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        int time = 3600*Integer.parseInt(this.heure.substring(0, 2)) + 60*Integer.parseInt(this.heure.substring(3, 5))
+                - 3600*Calendar.getInstance().getTime().getHours() - 60*Calendar.getInstance().getTime().getMinutes() - Calendar.getInstance().getTime().getSeconds();
+
+        if (time <0){
+            time += 24*60*60;
+        }
+        am.setExact( AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000*time , pendingIntent );
+    }
+
+    public void unsetAlarm(Context ctx){
+        if (pending != null) {
+            ctx.unregisterReceiver(alarmReceiver);
+            AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+            alarmManager.cancel(pending);
+            Log.v("DIM", "Alarm unset");
+        }
+    }
+
+    public String toString(){
+        return "Alarme : " + heure;
+    }
 }
