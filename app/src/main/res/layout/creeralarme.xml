@@ -65,61 +65,84 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
                     <CheckedTextView
+                        android:id="@+id/CheckLundi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="L"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckMardi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="M"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckMercredi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="M"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckJeudi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="J"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckVendredi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="V"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckSamedi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="S"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:id="@+id/CheckDimanche"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:text="D"
-                        android:layout_marginHorizontal="2dp">
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
 
                     </CheckedTextView>
                 </LinearLayout>

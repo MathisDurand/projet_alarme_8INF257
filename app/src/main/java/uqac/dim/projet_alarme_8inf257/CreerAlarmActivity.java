@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 
 import java.io.IOException;
@@ -109,7 +110,134 @@ public class CreerAlarmActivity extends Activity {
                 Log.v("DIM",minute);
             }
         });
+        CheckedTextView CheckLundi = (CheckedTextView)findViewById(R.id.CheckLundi);
+        CheckLundi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Lundi");
+                if(CheckLundi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckLundi.setChecked(false);
+                    CheckLundi.setTextColor(-16777216);
+                    CheckLundi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckLundi.setChecked(true);
+                    CheckLundi.setTextColor(-1);
+                    CheckLundi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckMardi = (CheckedTextView)findViewById(R.id.CheckMardi);
+        CheckMardi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Mardi");
+                if(CheckMardi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckMardi.setChecked(false);
+                    CheckMardi.setTextColor(-16777216);
+                    CheckMardi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckMardi.setChecked(true);
+                    CheckMardi.setTextColor(-1);
+                    CheckMardi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckMercredi = (CheckedTextView)findViewById(R.id.CheckMercredi);
+        CheckMercredi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Mercredi");
+                if(CheckMercredi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckMercredi.setChecked(false);
+                    CheckMercredi.setTextColor(-16777216);
+                    CheckMercredi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckMercredi.setChecked(true);
+                    CheckMercredi.setTextColor(-1);
+                    CheckMercredi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckJeudi = (CheckedTextView)findViewById(R.id.CheckJeudi);
+        CheckJeudi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Jeudi");
+                if(CheckJeudi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckJeudi.setChecked(false);
+                    CheckJeudi.setTextColor(-16777216);
+                    CheckJeudi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckJeudi.setChecked(true);
+                    CheckJeudi.setTextColor(-1);
+                    CheckJeudi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckVendredi = (CheckedTextView)findViewById(R.id.CheckVendredi);
+        CheckVendredi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Vendredi");
+                if(CheckVendredi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckVendredi.setChecked(false);
+                    CheckVendredi.setTextColor(-16777216);
+                    CheckVendredi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckVendredi.setChecked(true);
+                    CheckVendredi.setTextColor(-1);
+                    CheckVendredi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckSamedi = (CheckedTextView)findViewById(R.id.CheckSamedi);
+        CheckSamedi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Samedi");
+                if(CheckSamedi.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckSamedi.setChecked(false);
+                    CheckSamedi.setTextColor(-16777216);
+                    CheckSamedi.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckSamedi.setChecked(true);
+                    CheckSamedi.setTextColor(-1);
+                    CheckSamedi.setBackgroundColor(-16776961);
+                }
+            }
+        });
+        CheckedTextView CheckDimanche = (CheckedTextView)findViewById(R.id.CheckDimanche);
+        CheckDimanche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("DIM", "Dimanche");
+                if(CheckDimanche.isChecked()) {
+                    Log.v("DIM", "Pas selectionné");
+                    CheckDimanche.setChecked(false);
+                    CheckDimanche.setTextColor(-16777216);
+                    CheckDimanche.setBackgroundColor(-1);
+                }else{
+                    Log.v("DIM", "Selectionné");
+                    CheckDimanche.setChecked(true);
+                    CheckDimanche.setTextColor(-1);
+                    CheckDimanche.setBackgroundColor(-16776961);
+                }
+            }
+        });
     }
+
     public void creeralarme(View activity_main) {
         Intent intent = new Intent(CreerAlarmActivity.this, CreerAlarmActivity.class);
         startActivity(intent);
