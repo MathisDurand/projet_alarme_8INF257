@@ -2,6 +2,7 @@ package uqac.dim.projet_alarme_8inf257;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -55,5 +56,9 @@ public class LanguageActivity extends Activity {
             }
         });
 
+    }
+    public void alarme(View activity_main) {
+        Intent intent = new Intent(LanguageActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

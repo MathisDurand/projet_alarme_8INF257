@@ -9,12 +9,16 @@
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17435897435897435" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/drawable/rounded_border_button.xml" value="0.17435897435897435" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/activity_main.xml" value="0.1461499493414387" />
+        <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/aucunealarme.xml" value="0.161231884057971" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/changetheme.xml" value="0.1461499493414387" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/choixsonnerie.xml" value="0.1461499493414387" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/creeralarme.xml" value="0.1461499493414387" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/desactivation.xml" value="0.10144927536231885" />
+        <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/desactiver.xml" value="0.161231884057971" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/lang_page.xml" value="0.16576086956521738" />
+        <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/minijeuxclique.xml" value="0.161231884057971" />
         <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/layout/parametre.xml" value="0.1" />
+        <entry key="..\:/Devmobile/projet_alarme_8INF257/app/src/main/res/xml/rond.xml" value="0.161231884057971" />
         <entry key="..\:/Users/duval.daniel/Documents/UQAC_cours/Informatique_mobile/projet_alarme_8INF257/app/src/main/res/layout/changetheme.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/duval.daniel/Documents/UQAC_cours/Informatique_mobile/projet_alarme_8INF257/app/src/main/res/layout/creeralarme.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/drawable-v24/menu_arrondi.xml" value="0.15" />
