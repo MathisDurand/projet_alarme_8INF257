@@ -35,16 +35,20 @@ public class ResultActivity extends Activity {
     }
     public void desactiver(){
         Log.v("DIM", "Playing minigame : " + minigameId);
+        Intent i;
         switch(minigameId){
             case 1:
-                Intent i = new Intent(this, MiniJeuxCalcul.class);
+                i = new Intent(this, MiniJeuxCalcul.class);
                 startActivity(i);
                 break;
             case 2:
-                /*Intent i = new Intent(this, MiniJeux, .class);
-                startActivity(i);*/
+                i = new Intent(this, MiniJeuxCliqueActivity.class);
+                startActivity(i);
                 break;
             default:
+                CommonMyMediaPlayer.player.stopMusic();
+                i = new Intent(this, MainActivity.class);
+                startActivity(i);
                 break;
         }
     }

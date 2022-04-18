@@ -100,6 +100,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ResultActivity"/>
         </activity>
+        <activity
+            android:name=".MiniJeuxCliqueActivity"
+            android:label="MJClique"
+            android:parentActivityName=".ResultActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ResultActivity"/>
+        </activity>
     </application>
 
 </manifest>

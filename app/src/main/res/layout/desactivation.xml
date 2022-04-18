@@ -26,55 +26,68 @@
             android:layout_weight="2"
             android:background="@xml/arrondi_principal"
             android:padding="10dp">
-            <RadioGroup
-                android:id="@+id/MiniGameChoice"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <RadioButton
-                    android:id="@+id/MG0"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="Aucun"
-                    android:textSize="50dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-                </RadioButton>
-                <RadioButton
-                    android:id="@+id/MG1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <RadioGroup
+                    android:id="@+id/MiniGameChoice"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <RadioButton
+                        android:id="@+id/MG0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="Aucun"
+                        android:textSize="50dip"
+                        android:background="@xml/contenu"
+                        android:padding="10dp"
+                        android:elevation="5dp"
+                        android:layout_marginBottom="7dp">
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/MG1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="Calculs"
+                        android:textSize="50dip"
+                        android:background="@xml/contenu"
+                        android:padding="10dp"
+                        android:elevation="5dp"
+                        android:layout_marginBottom="7dp">
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/MG2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="Clique"
+                        android:textSize="50dip"
+                        android:background="@xml/contenu"
+                        android:padding="10dp"
+                        android:elevation="5dp"
+                        android:layout_marginBottom="7dp">
+                    </RadioButton>
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/OkMiniGame"
+                    android:layout_weight="0"
+                    android:text="Valider"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="Calculs"
-                    android:textSize="50dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
+                    android:background="@xml/boutonsave"
+                    android:layout_gravity="center"
                     android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-                </RadioButton>
-                <RadioButton
-                    android:id="@+id/MG2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:text="Clique"
-                    android:textSize="50dip"
-                    android:background="@xml/contenu"
-                    android:padding="10dp"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="7dp">
-                </RadioButton>
-            </RadioGroup>
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="30dp"/>
+            </LinearLayout>
         </ScrollView>
-        <Button
-            android:id="@+id/OkMiniGame"
-            android:layout_width="match_parent"
-            android:layout_weight="0"
-            android:layout_height="wrap_content"
-            android:text="Valider"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
