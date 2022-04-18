@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.widget.TextViewCompat;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -20,7 +21,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MiniJeuxCalcul extends AppCompatActivity {
+public class MiniJeuxCalcul extends Activity {
     private int nombre1 = 0;
     private int nombre2 = 0;
     private  int operateur = 0;
@@ -30,7 +31,7 @@ public class MiniJeuxCalcul extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.minijeuxcalcul);
         commencer();
         Button commencer = (Button) findViewById(R.id.commencer);
         commencer.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,7 @@ public class MiniJeuxCalcul extends AppCompatActivity {
     public void score(){
         TextView scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         scoreTextView.setText(score+"/5");
+        if(score>4){CommonMyMediaPlayer.player.stopMusic();}
     }
 
     public void valider(){

@@ -10,25 +10,26 @@
         android:background="@xml/font"
         >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="200dp"
         android:layout_marginHorizontal="30dp"
         android:layout_weight="50"
-        android:background="@xml/rond"
         android:padding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <Button
+            android:id="@+id/desactiverAlarme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@xml/rond"
             android:text="Désactiver"
-            android:textSize="30dp">
-
-        </TextView>
-    </LinearLayout>
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

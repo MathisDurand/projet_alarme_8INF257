@@ -179,6 +179,9 @@ public class Alarm {
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(ctx, AlarmReciever.class);
+        Log.v("DIM", "IDMG : " + idMiniGame);
+        intent.putExtra("minigameID", idMiniGame);
+        intent.putExtra("ringtoneID", idRingtone);
         intent.putExtra("data", this.toString());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);

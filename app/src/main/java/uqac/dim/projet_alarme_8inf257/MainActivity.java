@@ -16,6 +16,7 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
 
     private DBAlarmHandler db;
+    //private MyMediaPlayer mmp = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
             elt.updateAlarmStatus(this);
         }
     }
+
+   /* public void setMmp(MyMediaPlayer mmp){this.mmp = mmp;}
+
+    public MyMediaPlayer getMmp(){return this.mmp;}*/
 
     @Override
     protected void onPause() {

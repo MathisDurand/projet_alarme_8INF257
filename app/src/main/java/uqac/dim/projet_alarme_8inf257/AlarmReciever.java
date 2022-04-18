@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
@@ -17,6 +18,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 public class AlarmReciever extends BroadcastReceiver {
+    private MediaPlayer mediaPlayer;
+    private int ringtoneId;
+    private Context ctx;
+
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -24,9 +29,14 @@ public class AlarmReciever extends BroadcastReceiver {
 
         NotificationManager mNotificationManager;
 
+        int minigameId= intent.getIntExtra("minigameID",0);
+        int ringtoneId= intent.getIntExtra("ringtoneID",0);
+        Log.v("DIM", "ID_MG_AlarmReceiver : " + minigameId +" | "+ringtoneId);
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context.getApplicationContext(), "notify_001");
         Intent ii = new Intent(context.getApplicationContext(), ResultActivity.class);
+        ii.putExtra("minigameID", minigameId);
+        ii.putExtra("ringtoneID", ringtoneId);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, ii, 0);
 
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
@@ -59,5 +69,17 @@ public class AlarmReciever extends BroadcastReceiver {
         }
 
         mNotificationManager.notify(0, mBuilder.build());
+
+        MyMediaPlayer mmp = new MyMediaPlayer(ringtoneId, context);
+        Log.v("DIM", "***** CONTEXT : " + context);
+        CommonMyMediaPlayer.player = mmp;
+        mmp.execute((Void) null);
+
+        //playMusic(ringtoneId, context);
+
+        /*MediaPlayer mmp = mediaPlayer = MediaPlayer.create(context, R.raw.ringtone1);
+        mmp.prepareAsync();
+        mmp.start();*/
     }
+
 }

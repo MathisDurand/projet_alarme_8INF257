@@ -92,6 +92,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Parametre"/>
         </activity>
+        <activity
+            android:name=".MiniJeuxCalcul"
+            android:label="MJCalcul"
+            android:parentActivityName=".ResultActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ResultActivity"/>
+        </activity>
     </application>
 
 </manifest>
