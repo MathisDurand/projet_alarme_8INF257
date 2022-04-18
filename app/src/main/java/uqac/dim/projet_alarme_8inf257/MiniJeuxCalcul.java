@@ -5,6 +5,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.widget.TextViewCompat;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -76,7 +77,11 @@ public class MiniJeuxCalcul extends Activity {
     public void score(){
         TextView scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         scoreTextView.setText(score+"/5");
-        if(score>4){CommonMyMediaPlayer.player.stopMusic();}
+        if(score>4){
+            CommonMyMediaPlayer.player.stopMusic();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void valider(){
@@ -96,7 +101,7 @@ public class MiniJeuxCalcul extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            calcul.setBackgroundColor(-1);
+                            calcul.setBackgroundColor(getColor(R.color.theme_default_principal));
                             reponse.setText("");
                             commencer();
                             score+=1;
@@ -116,7 +121,7 @@ public class MiniJeuxCalcul extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            calcul.setBackgroundColor(-1);
+                            calcul.setBackgroundColor(getColor(R.color.theme_default_principal));
                             reponse.setText("");
                             commencer();
                         }
