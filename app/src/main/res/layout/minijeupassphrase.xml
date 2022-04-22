@@ -37,7 +37,7 @@
                 android:layout_gravity="center|center_vertical"
                 android:text="@string/hintPassphrase"
                 android:textAlignment="center"
-                android:textSize="60dp" />
+                android:textSize="60sp" />
 
             <EditText
                 android:id="@+id/userInputText"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_vertical"
                 android:textSize="50sp"
-                android:text="@string/blankSpace"
+                android:hint="@string/answers"
 
                 />
             <TextView

@@ -11,7 +11,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginVertical="150dp"
             android:layout_marginHorizontal="30dp"
             android:layout_weight="50"
@@ -24,8 +24,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Créer une alarme"
-                android:textSize="30dp">
+                android:text="@string/createAlarm"
+                android:textSize="30sp">
 
             </TextView>
         </LinearLayout>
@@ -52,7 +52,7 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Alarme"
+                android:text="@string/butonNameAlarms"
                 android:textColor="#000000"
                 android:onClick="alarme"
                 android:background="#00363636">
@@ -71,7 +71,7 @@
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Parametre"
+                android:text="@string/butonNameParameters"
                 android:textColor="#FF592A"
                 android:layout_weight="1"
                 android:background="#00363636">

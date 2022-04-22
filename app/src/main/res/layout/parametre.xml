@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="40dp"
-            android:text="Paramètres"
+            android:text="@string/parametersStr"
             android:gravity="center"
             android:textSize="50dp">
         </TextView>
@@ -34,8 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
-                android:text="Langues"
-                android:textSize="60dip"
+                android:text="@string/langues"
+                android:textSize="50sp"
                 android:onClick="langue"
                 android:padding="10dp"
                 android:elevation="5dp"
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
-                android:text="Thèmes"
+                android:text="@string/themesSTR"
                 android:textSize="60dip"
                 android:onClick="theme"
                 android:padding="10dp"
@@ -60,11 +60,6 @@
 
 
         </LinearLayout>
-
-
-
-
-
 
 
         <LinearLayout
@@ -83,7 +78,7 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Alarme"
+                android:text="@string/butonNameAlarms"
                 android:textColor="#000000"
                 android:onClick="alarme"
                 android:background="#00363636">
@@ -102,7 +97,7 @@
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Parametre"
+                android:text="@string/butonNameParameters"
                 android:textColor="#FF592A"
                 android:layout_weight="1"
                 android:background="#00363636">

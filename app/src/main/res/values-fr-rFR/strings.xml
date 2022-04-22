@@ -11,4 +11,18 @@
     <string name="butonValidate">Valider</string>
     <string name="passphraseTitle">Phrase à entrer</string>
     <string name="passphraserule">Saisir une phrase de longueur min 10 puis appuyer sur valider</string>
+    <string name="yourAlarms">Vos Alarmes</string>
+    <string name="createAlarm">Créer une Alarme</string>
+    <string name="defaultTheme">Par défaut</string>
+    <string name="darkTheme">Thème sombre</string>
+    <string name="blueTheme">Bleu</string>
+    <string name="redTheme">Rouge</string>
+    <string name="themesMenuTitle">Choisir Thème</string>
+    <string name="calculMG">Mini jeu : Calcul</string>
+    <string name="answers">answer here</string>
+    <string name="pressThousands">Appuyer 1000 fois pour désactiver</string>
+    <string name="parametersStr">Paramètres</string>
+    <string name="langues">Langues</string>
+    <string name="themesSTR">Thèmes</string>
+    <string name="shakeRule">Secouer le téléphone pour débloquer !</string>
 </resources>
