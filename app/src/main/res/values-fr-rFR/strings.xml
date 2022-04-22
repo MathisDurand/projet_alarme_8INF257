@@ -6,4 +6,9 @@
     <string name="selectLanguage">Choisissez votre langue</string>
     <string name="butonNameAlarms">Alarmes</string>
     <string name="butonNameParameters">Paramètres</string>
+    <string name="writeHere">Ecrire ici</string>
+    <string name="hintPassphrase">Entrer votre phrase</string>
+    <string name="butonValidate">Valider</string>
+    <string name="passphraseTitle">Phrase à entrer</string>
+    <string name="passphraserule">Saisir une phrase de longueur min 10 puis appuyer sur valider</string>
 </resources>

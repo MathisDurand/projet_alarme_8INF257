@@ -5,4 +5,15 @@
     <string name="selectLanguage">Select your language</string>
     <string name="butonNameAlarms">Alarms</string>
     <string name="butonNameParameters">Parameters</string>
+
+    <string name="butonValidate">Validate</string>
+    <string name="blankSpace" translatable="false">________</string>
+
+    <string name="writeHere"> Write Here</string>
+    <string name="hintPassphrase">Enter your phrase</string>
+    <string name="passphraserule">Enter a min 10 caracters length phrase to continue</string>
+
+    <string name="passphraseTitle">Passphrase</string>
+
+
 </resources>
