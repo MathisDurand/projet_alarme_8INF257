@@ -32,6 +32,12 @@ public class DesactivationActivity extends Activity {
             case 2:
                 radioGroup.check(R.id.MG2);
                 break;
+            case 3:
+                radioGroup.check(R.id.MG3);
+                break;
+            case 4:
+                radioGroup.check(R.id.MG4);
+                break;
             default:
         }
 
@@ -41,6 +47,14 @@ public class DesactivationActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int i;
                 switch(checkedId){
+                    case R.id.MG4:
+                        i = 4;
+                        Log.v("DIM", "change minigameid to : "+i);
+                        break;
+                    case R.id.MG3:
+                        i = 3;
+                        Log.v("DIM", "change minigameid to : "+i);
+                        break;
                     case R.id.MG2:
                         i = 2;
                         Log.v("DIM", "change minigameid to : "+i);
