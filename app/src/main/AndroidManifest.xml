@@ -108,6 +108,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ResultActivity"/>
         </activity>
+        <activity
+            android:name=".PassphraseActivity"
+            android:label="MJClique"
+            android:parentActivityName=".ResultActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ResultActivity"/>
+        </activity>
+        <activity
+            android:name=".ShakeActivity"
+            android:label="MJClique"
+            android:parentActivityName=".ResultActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ResultActivity"/>
+        </activity>
     </application>
 
 </manifest>

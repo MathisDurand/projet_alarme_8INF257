@@ -25,4 +25,20 @@
     <string name="langues">Langues</string>
     <string name="themesSTR">Thèmes</string>
     <string name="shakeRule">Secouer le téléphone pour débloquer !</string>
+    <string name="calculsTxt">Calcul</string>
+    <string name="noneTxt">Aucun</string>
+    <string name="desMethodStrnig">Méthode de Désactivation</string>
+    <string name="cliqueTxt">Cliquer</string>
+    <string name="shakeTxt">Secouer</string>
+    <string name="passphraseTxt">Entrer Phrase</string>
+    <string name="hip_hopTxt">Hip-Hop</string>
+    <string name="natureTxt">Nature</string>
+    <string name="ringtoneTXT">Choisissez votre Sonnerie</string>
+    <string name="l">L</string>
+    <string name="j">J</string>
+    <string name="v">V</string>
+    <string name="s">S</string>
+    <string name="d">D</string>
+    <string name="saveTxt">Sauvegarder</string>
+    <string name="m">M</string>
 </resources>

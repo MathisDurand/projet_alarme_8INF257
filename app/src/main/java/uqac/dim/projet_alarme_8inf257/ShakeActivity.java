@@ -1,16 +1,22 @@
 package uqac.dim.projet_alarme_8inf257;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Animatable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.Objects;
-class ShakeActivity extends AppCompatActivity {
+public class ShakeActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private float mAccel;
     private float mAccelCurrent;
@@ -25,6 +31,10 @@ class ShakeActivity extends AppCompatActivity {
         mAccel = 10f;
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
+
+        ImageView img = (ImageView)findViewById(R.id.phoneDraw);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        img.startAnimation(animation);
 
         Toast.makeText(getApplicationContext(), "WAKE UP", Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(), "WAKE UP", Toast.LENGTH_SHORT).show();
@@ -42,10 +52,13 @@ class ShakeActivity extends AppCompatActivity {
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta;
 
-            //todo animations
             if(mAccel > 40) {
+                CommonMyMediaPlayer.player.stopMusic();
                 Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(ShakeActivity.this, MainActivity.class));
+
+                Intent i = new Intent(ShakeActivity.this, MainActivity.class);
+                Bundle bundle  = ActivityOptions.makeSceneTransitionAnimation(ShakeActivity.this).toBundle();
+                startActivity(i,bundle);
             }
         }
         @Override
@@ -53,6 +66,8 @@ class ShakeActivity extends AppCompatActivity {
             //nothing to do here
         }
     };
+
+    //Enable & Disable listeners
     @Override
     protected void onResume() {
         mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),

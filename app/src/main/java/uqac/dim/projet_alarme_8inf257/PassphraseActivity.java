@@ -1,5 +1,6 @@
 package uqac.dim.projet_alarme_8inf257;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -22,8 +23,14 @@ public class PassphraseActivity extends AppCompatActivity {
 
 
     private void TestPhrase(){
-        if(inputText.getText().length() >10)
-            startActivity(new Intent(PassphraseActivity.this, MainActivity.class));
+        if(inputText.getText().length() >10){
+            CommonMyMediaPlayer.player.stopMusic();
+
+            Intent i = new Intent(PassphraseActivity.this, MainActivity.class);
+            Bundle bundle  = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(i,bundle);
+        }
+
     }
 }
 

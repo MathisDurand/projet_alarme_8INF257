@@ -13,14 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="40dp"
-            android:text="Vos Alarmes"
+            android:text="@string/yourAlarms"
             android:gravity="center"
-            android:textSize="50dp">
+            android:textSize="50sp">
         </TextView>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="7dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="2"
@@ -28,7 +28,7 @@
             android:padding="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
 
                 android:orientation="vertical">
 
@@ -43,14 +43,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="30dp"
+                        android:textSize="30sp"
                         android:inputType="number">
                     </EditText>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=":"
-                        android:textSize="30dp">
+                        android:textSize="30sp">
                     </TextView>
                     <EditText
                         android:id="@+id/creerAlarmMinute"
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="L"
+                        android:text="@string/l"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -84,7 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="M"
+                        android:text="@string/m"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -95,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="M"
+                        android:text="@string/m"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="J"
+                        android:text="@string/j"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="V"
+                        android:text="@string/v"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="S"
+                        android:text="@string/s"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -139,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:text="D"
+                        android:text="@string/d"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="1"
                         android:textAlignment="center">
@@ -157,10 +157,10 @@
                     android:layout_marginBottom="7dp"
                     android:onClick="choixsonnerie">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Sonnerie"
-                        android:textSize="50dip"
+                        android:text="@string/ringtoneTXT"
+                        android:textSize="50sp"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical">
 
@@ -169,9 +169,7 @@
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_fleche"
-                        android:layout_marginRight="10dp">
-
-                        >
+                        android:layout_marginEnd="10dp">
 
                     </ImageView>
                 </LinearLayout>
@@ -188,7 +186,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Méthode de désactivation"
+                        android:text="@string/desMethodStrnig"
                         android:textSize="30dip"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical">
@@ -198,11 +196,9 @@
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_fleche"
-                        android:layout_marginRight="10dp">
+                        android:layout_marginEnd="10dp">
 
-                        >
-
-                    </ImageView>
+                         </ImageView>
                 </LinearLayout>
                 <Button
                     android:id="@+id/saveAlarm"
@@ -211,8 +207,8 @@
                     android:background="@xml/boutonsave"
                     android:layout_gravity="center"
                     android:elevation="5dp"
-                    android:text="Sauvegarder"
-                    android:textSize="20dp"
+                    android:text="@string/saveTxt"
+                    android:textSize="20sp"
                     android:layout_marginTop="20dp"
                     android:paddingHorizontal="30dp"
                     >
@@ -240,7 +236,7 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Alarme"
+                android:text="@string/butonNameAlarms"
                 android:textColor="#FF592A"
                 android:onClick="alarme"
                 android:background="#00363636">
@@ -259,7 +255,7 @@
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Parametre"
+                android:text="@string/butonNameParameters"
                 android:textColor="#000000"
                 android:layout_weight="1"
                 android:onClick="parametre"

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:padding="40dp"
             android:gravity="center"
-            android:textSize="50dp">
+            android:textSize="50sp">
 
         </TextView>
         <ScrollView
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:textSize="50dip"
+                android:textSize="50sp"
                 android:background="@xml/contenu"
                 android:padding="10dp"
                 android:elevation="5dp"
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:textSize="40dip"
+                android:textSize="40sp"
                 android:background="@xml/contenu"
                 android:padding="10dp"
                 android:elevation="5dp"
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:textSize="50dip"
+                android:textSize="50sp"
                 android:background="@xml/contenu"
                 android:padding="10dp"
                 android:elevation="5dp"
@@ -77,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:textSize="50dip"
+                android:textSize="50sp"
                 android:background="@xml/contenu"
                 android:padding="10dp"
                 android:elevation="5dp"
