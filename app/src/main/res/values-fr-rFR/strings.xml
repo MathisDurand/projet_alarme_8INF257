@@ -41,4 +41,9 @@
     <string name="d">D</string>
     <string name="saveTxt">Sauvegarder</string>
     <string name="m">M</string>
+
+    <string name="Ringtone">Sonnerie</string>
+    <string name="MiniGame">Mini-Jeu</string>
+    <string name="Edit">Modifier</string>
+    <string name="Delete">Supprimer</string>
 </resources>

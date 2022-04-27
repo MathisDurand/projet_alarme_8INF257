@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
@@ -106,20 +107,36 @@ public class Alarm {
         LinearLayout.LayoutParams lpt = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
+        lpt.setMargins(0, 0, 0, 20);
         tv.setLayoutParams(lpt);
-        tv.setText("Sonnerie : " + this.idRingtone +" | "+ "Mini-jeu : " + this.idMiniGame);
+        String txt = R.string.Ringtone +" : " + this.idRingtone +" | "+ R.string.MiniGame+ " : " + this.idMiniGame;
+        tv.setText(txt);
         tv.setTextColor(Color.BLACK);
 
+        LinearLayout.LayoutParams llpbtn = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                1);
+
+        LinearLayout lbtn = new LinearLayout(ctx);
+        lbtn.setLayoutParams(llpbtn);
+        lbtn.setOrientation(LinearLayout.HORIZONTAL);
+
         Button btnM = new Button(ctx);
-        btnM.setText("Modifier");
+        btnM.setLayoutParams(llpbtn);
+        btnM.setText(R.string.Edit);
+        btnM.setBackground(ctx.getDrawable(R.xml.boutonsave));
         btnM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clickToModify(ctx);
             }
         });
+
         Button btnS = new Button(ctx);
-        btnS.setText("Supprimer");
+        btnS.setLayoutParams(llpbtn);
+        btnS.setText(R.string.Delete);
+        btnS.setBackground(ctx.getDrawable(R.xml.boutonsave));
         btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,10 +144,12 @@ public class Alarm {
             }
         });
 
+        lbtn.addView(btnM);
+        lbtn.addView(btnS);
+
         res.addView(s);
         res.addView(tv);
-        res.addView(btnM);
-        res.addView(btnS);
+        res.addView(lbtn);
         res.setBackground(ctx.getDrawable(R.xml.contenu));
         return res;
     }

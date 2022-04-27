@@ -6,6 +6,10 @@
     <string name="butonNameAlarms">Alarms</string>
     <string name="butonNameParameters">Parameters</string>
     <string name="butonValidate">Validate</string>
+    <string name="Ringtone">Ringtone</string>
+    <string name="MiniGame">Mini-Game</string>
+    <string name="Edit">Edit</string>
+    <string name="Delete">Delete</string>
 
     <!-- Common used Strings (Symbols)-->
     <string name="plus" translatable="false">+</string>
