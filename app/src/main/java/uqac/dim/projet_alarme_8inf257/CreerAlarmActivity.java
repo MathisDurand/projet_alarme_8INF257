@@ -21,7 +21,7 @@ public class CreerAlarmActivity extends Activity {
     private String hour = "00";
     private String minute = "00";
     private DBAlarmHandler db;
-    private int[] week = new int[]{0, 0, 0, 0, 0, 0, 0}; // Monday -> Sunday
+    private int[] week = new int[]{1, 1, 1, 1, 1, 1, 1}; // Monday -> Sunday
 
     static final String DATA = "data";
     static final int PICK_RINGTONE_REQUEST = 0;
