@@ -21,6 +21,7 @@ public class CreerAlarmActivity extends Activity {
     private String hour = "00";
     private String minute = "00";
     private DBAlarmHandler db;
+    private int[] week = new int[]{0, 0, 0, 0, 0, 0, 0}; // Monday -> Sunday
 
     static final String DATA = "data";
     static final int PICK_RINGTONE_REQUEST = 0;
@@ -111,6 +112,7 @@ public class CreerAlarmActivity extends Activity {
             }
         });
         CheckedTextView CheckLundi = (CheckedTextView)findViewById(R.id.CheckLundi);
+        CheckLundi.setChecked(true);
         CheckLundi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,9 +128,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckLundi.setTextColor(-1);
                     CheckLundi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(0, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckMardi = (CheckedTextView)findViewById(R.id.CheckMardi);
+        CheckMardi.setChecked(true);
         CheckMardi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,9 +148,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckMardi.setTextColor(-1);
                     CheckMardi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(1, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckMercredi = (CheckedTextView)findViewById(R.id.CheckMercredi);
+        CheckMercredi.setChecked(true);
         CheckMercredi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,9 +168,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckMercredi.setTextColor(-1);
                     CheckMercredi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(2, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckJeudi = (CheckedTextView)findViewById(R.id.CheckJeudi);
+        CheckJeudi.setChecked(true);
         CheckJeudi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,9 +188,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckJeudi.setTextColor(-1);
                     CheckJeudi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(3, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckVendredi = (CheckedTextView)findViewById(R.id.CheckVendredi);
+        CheckVendredi.setChecked(true);
         CheckVendredi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,9 +208,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckVendredi.setTextColor(-1);
                     CheckVendredi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(4, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckSamedi = (CheckedTextView)findViewById(R.id.CheckSamedi);
+        CheckSamedi.setChecked(true);
         CheckSamedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -216,9 +228,11 @@ public class CreerAlarmActivity extends Activity {
                     CheckSamedi.setTextColor(-1);
                     CheckSamedi.setBackgroundColor(-16776961);
                 }
+                modifyWeek(5, CheckLundi.isChecked());
             }
         });
         CheckedTextView CheckDimanche = (CheckedTextView)findViewById(R.id.CheckDimanche);
+        CheckDimanche.setChecked(true);
         CheckDimanche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,8 +248,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckDimanche.setTextColor(-1);
                     CheckDimanche.setBackgroundColor(-16776961);
                 }
+                modifyWeek(6, CheckLundi.isChecked());
             }
         });
+    }
+
+    public void modifyWeek(int jour, boolean isChecked){
+        week[jour] = isChecked ? 1 : 0;
     }
 
     public void creeralarme(View activity_main) {
@@ -262,8 +281,13 @@ public class CreerAlarmActivity extends Activity {
     }
 
     public void sauvegarder(){
-        Log.v("DIM", "Hour chaged : " + this.hour + ":" + this.minute);
-        db.addNewAlarm(this.hour + ":" + this.minute, this.idMiniGame, this.idRingtone, 1);
+        Log.v("DIM", "Hour changed : " + this.hour + ":" + this.minute);
+        db.addNewAlarm(
+                this.hour + ":" + this.minute,
+                this.idMiniGame,
+                this.idRingtone,
+                1,
+                week);
         Intent intent = new Intent(CreerAlarmActivity.this, MainActivity.class);
         startActivity(intent);
     }

@@ -28,6 +28,7 @@ public class Alarm {
     private int idMiniGame;
     private int idRingtone;
     private int enable;
+    private int[] week = new int[]{1, 1, 1, 1, 1, 1, 1}; // Sunday -> Saturday
     private Intent intentAlarm;
     private PendingIntent pending;
     BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
@@ -45,13 +46,14 @@ public class Alarm {
     static final String HOUR = "hour";
     static final String MINUTE = "minute";
 
-    public Alarm(int id, String h, int i_mg, int i_r, int e, DBAlarmHandler db){
+    public Alarm(int id, String h, int i_mg, int i_r, int e, int[] w, DBAlarmHandler db){
         this.id = id;
         this.heure = h;
         this.idMiniGame = i_mg;
         this.idRingtone = i_r;
         this.enable = e;
         this.db = db;
+        this.week = w;
 
         this.intentAlarm=new Intent(Intent.ACTION_VIEW);
         this.intentAlarm.setData(Uri.parse("http://www.games-workshop.com"));
@@ -109,7 +111,15 @@ public class Alarm {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         lpt.setMargins(0, 0, 0, 20);
         tv.setLayoutParams(lpt);
-        String txt = R.string.Ringtone +" : " + this.idRingtone +" | "+ R.string.MiniGame+ " : " + this.idMiniGame;
+        String txt = R.string.Ringtone +" : " + this.idRingtone +" | "+ R.string.MiniGame+ " : " + this.idMiniGame + " | ";
+        String[] w = new String[]{"S", "M", "T", "W", "T", "F", "S"};
+
+        for(int ind = 0; ind < 7; ind++){
+            if (week[ind] !=0){
+                txt += w[ind];
+            }
+        }
+
         tv.setText(txt);
         tv.setTextColor(Color.BLACK);
 
@@ -207,9 +217,25 @@ public class Alarm {
         int time = 3600*Integer.parseInt(this.heure.substring(0, 2)) + 60*Integer.parseInt(this.heure.substring(3, 5))
                 - 3600*Calendar.getInstance().getTime().getHours() - 60*Calendar.getInstance().getTime().getMinutes() - Calendar.getInstance().getTime().getSeconds();
 
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        int index = 1;
+        boolean nextDayFound = false;
+
+        while((!nextDayFound) && (index<8)){
+            if(week[(day-1 + index)%7] != 0){
+                nextDayFound = true;
+            }
+            else{
+                index++;
+            }
+        }
+
         if (time <0){
             time += 24*60*60;
         }
+        time += 24*60*60 * (index-1);
+
         am.setExact( AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000*time , pendingIntent );
     }
 

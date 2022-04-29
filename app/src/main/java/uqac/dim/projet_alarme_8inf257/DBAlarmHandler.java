@@ -34,6 +34,15 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
     private static final String ID_MINIGAME_SAVED_ALARMS = "idMiniGame";
     private static final String ID_RINGTONE_SAVED_ALARMS = "idRingtone";
     private static final String ENABLE_SAVED_ALARMS = "enable";
+    private static final String[] WEEK_SAVED_ALARMS = new String[]{
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+    };
 
     private static final String TABLE_NAME_MINIGAMES = "savedAlarms";
     private static final String ID_MINIGAMES = "id";
@@ -146,7 +155,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {}
 
     // this method is use to add new course to our sqlite database.
-    public void addNewAlarm(String hour, int minigameID, int ringtoneID, int enable) {
+    public void addNewAlarm(String hour, int minigameID, int ringtoneID, int enable, int[] week) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -156,6 +165,13 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         values.put(ID_MINIGAME_SAVED_ALARMS, minigameID);
         values.put(ID_RINGTONE_SAVED_ALARMS, ringtoneID);
         values.put(ENABLE_SAVED_ALARMS, enable);
+        values.put(WEEK_SAVED_ALARMS[0], week[0]);
+        values.put(WEEK_SAVED_ALARMS[1], week[1]);
+        values.put(WEEK_SAVED_ALARMS[2], week[2]);
+        values.put(WEEK_SAVED_ALARMS[3], week[3]);
+        values.put(WEEK_SAVED_ALARMS[4], week[4]);
+        values.put(WEEK_SAVED_ALARMS[5], week[5]);
+        values.put(WEEK_SAVED_ALARMS[6], week[6]);
 
         Log.v("DIM", "\n------INSERT------\nHeure : " + hour + "\nRingtoneID : " + ringtoneID + "\nMiniGameID : " + minigameID);
         db.insert(TABLE_NAME_SAVED_ALARMS, null, values);
@@ -196,12 +212,19 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                int id = Integer.valueOf(cursor.getString(0));
+                int id = Integer.parseInt(cursor.getString(0));
                 String hourSaved = cursor.getString(1);
-                int idMiniGame = Integer.valueOf(cursor.getString(2));
-                int idRingtone = Integer.valueOf(cursor.getString(3));
-                int enable = Integer.valueOf(cursor.getString(4));
-                res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable, this));
+                int idMiniGame = Integer.parseInt(cursor.getString(2));
+                int idRingtone = Integer.parseInt(cursor.getString(3));
+                int enable = Integer.parseInt(cursor.getString(4));
+                int[] week = new int[]{Integer.parseInt(cursor.getString(11)), // Sunday
+                        Integer.parseInt(cursor.getString(5)),  // Monday
+                        Integer.parseInt(cursor.getString(6)),
+                        Integer.parseInt(cursor.getString(7)),
+                        Integer.parseInt(cursor.getString(8)),
+                        Integer.parseInt(cursor.getString(9)),
+                        Integer.parseInt(cursor.getString(10))}; // Saturday
+                res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable, week, this));
             } while (cursor.moveToNext());
             cursor.close();
         }
