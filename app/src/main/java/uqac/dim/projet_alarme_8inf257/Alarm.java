@@ -111,7 +111,7 @@ public class Alarm {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         lpt.setMargins(0, 0, 0, 20);
         tv.setLayoutParams(lpt);
-        String txt = R.string.Ringtone +" : " + this.idRingtone +" | "+ R.string.MiniGame+ " : " + this.idMiniGame + " | ";
+        String txt = ctx.getString(R.string.Ringtone) +" : " + this.idRingtone +" | "+ ctx.getString(R.string.MiniGame)+ " : " + this.idMiniGame + " | ";
         String[] w = new String[]{"S", "M", "T", "W", "T", "F", "S"};
 
         for(int ind = 0; ind < 7; ind++){
@@ -219,10 +219,20 @@ public class Alarm {
 
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-        int index = 1;
+        int index = 0;
         boolean nextDayFound = false;
 
-        while((!nextDayFound) && (index<8)){
+        int ind_max = 7;
+        int corr = 0;
+
+        if (time <0){
+            time += 24*60*60;
+            index = 1;
+            ind_max = 8;
+            corr = 1;
+        }
+
+        while((!nextDayFound) && (index<ind_max)){
             if(week[(day-1 + index)%7] != 0){
                 nextDayFound = true;
             }
@@ -231,10 +241,8 @@ public class Alarm {
             }
         }
 
-        if (time <0){
-            time += 24*60*60;
-        }
-        time += 24*60*60 * (index-1);
+        time += 24*60*60 * (index-corr);
+        Log.v("AlarmSet","Alarm set in " + time + "s");
 
         am.setExact( AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000*time , pendingIntent );
     }
