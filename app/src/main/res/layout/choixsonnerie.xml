@@ -103,7 +103,7 @@
             android:paddingTop="0dp"
             > <!--android:background="@xml/menu_arrondi"-->
 
-            >
+
             <Button
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"

@@ -45,6 +45,14 @@ public class ResultActivity extends Activity {
                 i = new Intent(this, MiniJeuxCliqueActivity.class);
                 startActivity(i);
                 break;
+            case 3:
+                i = new Intent(this, ShakeActivity.class);
+                startActivity(i);
+                break;
+            case 4:
+                i = new Intent(this, PassphraseActivity.class);
+                startActivity(i);
+                break;
             default:
                 CommonMyMediaPlayer.player.stopMusic();
                 i = new Intent(this, MainActivity.class);
