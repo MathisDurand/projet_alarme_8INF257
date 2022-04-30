@@ -62,8 +62,8 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() != 0){
-                    if(Integer.parseInt(s.toString()) >= 24){
-                        txtH.setText("00");
+                    if((Integer.parseInt(s.toString()) >= 24)||(s.length()>2)){
+                        txtH.setText("");
                     }
                 }
             }
@@ -90,8 +90,8 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() != 0){
-                    if(Integer.parseInt(s.toString()) >= 60){
-                        txtM.setText("00");
+                    if((Integer.parseInt(s.toString()) >= 60)||(s.length()>2)){
+                        txtM.setText("");
                     }
                 }
             }
