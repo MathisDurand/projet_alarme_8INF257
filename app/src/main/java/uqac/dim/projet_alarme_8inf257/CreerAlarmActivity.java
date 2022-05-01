@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
@@ -306,6 +307,7 @@ public class CreerAlarmActivity extends Activity {
                 this.idRingtone,
                 1,
                 week);
+        Toast.makeText(getApplicationContext(), getString(R.string.alarmSaved), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(CreerAlarmActivity.this, MainActivity.class);
         startActivity(intent);
     }

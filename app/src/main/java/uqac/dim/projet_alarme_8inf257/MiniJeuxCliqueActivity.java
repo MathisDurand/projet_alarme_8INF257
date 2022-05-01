@@ -37,6 +37,7 @@ public class MiniJeuxCliqueActivity extends Activity {
         }
         else {
             CommonMyMediaPlayer.player.stopMusic();
+
             Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
 
             Intent i = new Intent(MiniJeuxCliqueActivity.this, MainActivity.class);

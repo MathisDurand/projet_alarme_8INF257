@@ -10,6 +10,7 @@
     <string name="MiniGame">Mini-Game</string>
     <string name="Edit">Edit</string>
     <string name="Delete">Delete</string>
+    <string name="alarmSaved">Alarm saved</string>
 
     <!-- Common used Strings (Symbols)-->
     <string name="plus" translatable="false">+</string>

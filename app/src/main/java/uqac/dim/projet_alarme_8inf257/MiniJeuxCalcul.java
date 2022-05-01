@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 import java.util.Timer;
@@ -77,8 +78,11 @@ public class MiniJeuxCalcul extends Activity {
     public void score(){
         TextView scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         scoreTextView.setText(score+"/5");
-        if(score>4){
+        if(score>5){
             CommonMyMediaPlayer.player.stopMusic();
+
+            Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -25,6 +27,8 @@ public class PassphraseActivity extends AppCompatActivity {
     private void TestPhrase(){
         if(inputText.getText().length() >10){
             CommonMyMediaPlayer.player.stopMusic();
+
+            Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
 
             Intent i = new Intent(PassphraseActivity.this, MainActivity.class);
             Bundle bundle  = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
