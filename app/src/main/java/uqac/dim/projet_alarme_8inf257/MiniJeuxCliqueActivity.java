@@ -1,11 +1,13 @@
 package uqac.dim.projet_alarme_8inf257;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MiniJeuxCliqueActivity extends Activity {
     private final int NOMBRE = 100;
@@ -35,8 +37,11 @@ public class MiniJeuxCliqueActivity extends Activity {
         }
         else {
             CommonMyMediaPlayer.player.stopMusic();
-            Intent intent = new Intent(MiniJeuxCliqueActivity.this, MainActivity.class);
-            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
+
+            Intent i = new Intent(MiniJeuxCliqueActivity.this, MainActivity.class);
+            Bundle bundle  = ActivityOptions.makeSceneTransitionAnimation(MiniJeuxCliqueActivity.this).toBundle();
+            startActivity(i,bundle);
         }
     }
 }

@@ -31,13 +31,14 @@ public class AlarmReciever extends BroadcastReceiver {
 
         int minigameId= intent.getIntExtra("minigameID",0);
         int ringtoneId= intent.getIntExtra("ringtoneID",0);
-        Log.v("DIM", "ID_MG_AlarmReceiver : " + minigameId +" | "+ringtoneId);
+        Log.v("AlarmSet", "ID_MG_AlarmReceiver : " + minigameId +" | "+ringtoneId);
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context.getApplicationContext(), "notify_001");
         Intent ii = new Intent(context.getApplicationContext(), ResultActivity.class);
         ii.putExtra("minigameID", minigameId);
         ii.putExtra("ringtoneID", ringtoneId);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, ii, 0);
+        Log.v("AlarmSet", "Intent : " + ii.getIntExtra("minigameID", 0));
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, ii, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
         bigText.setBigContentTitle(intent.getStringExtra("data"));

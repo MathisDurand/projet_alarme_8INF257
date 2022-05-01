@@ -110,7 +110,7 @@
         </activity>
         <activity
             android:name=".PassphraseActivity"
-            android:label="MJClique"
+            android:label="MJPhrase"
             android:parentActivityName=".ResultActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -118,7 +118,7 @@
         </activity>
         <activity
             android:name=".ShakeActivity"
-            android:label="MJClique"
+            android:label="MJShake"
             android:parentActivityName=".ResultActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

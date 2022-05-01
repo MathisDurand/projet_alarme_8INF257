@@ -22,6 +22,7 @@ public class ResultActivity extends Activity {
         setContentView(R.layout.desactiver);
 
         minigameId = getIntent().getIntExtra("minigameID",0);
+        Log.v("AlarmSet", "onCreate ResultatActivity : IDMG = " + minigameId);
         ringtoneId = getIntent().getIntExtra("ringtoneID", 0);
 
 
@@ -34,7 +35,7 @@ public class ResultActivity extends Activity {
         });
     }
     public void desactiver(){
-        Log.v("DIM", "Playing minigame : " + minigameId);
+        Log.v("AlarmSet", "Playing minigame : " + minigameId);
         Intent i;
         switch(minigameId){
             case 1:

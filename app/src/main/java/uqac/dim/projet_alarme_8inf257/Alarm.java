@@ -95,6 +95,7 @@ public class Alarm {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         s.setLayoutParams(lps);
         s.setText(heure);
+        s.setTextColor(Color.BLACK);
         s.setTextSize(50);
         s.setPadding(10*2, 10*2, 10*2, 0);
         s.setElevation(5*2);

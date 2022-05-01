@@ -28,6 +28,7 @@
             android:background="@xml/arrondi_principal"
             android:padding="10dp">
             <LinearLayout
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -40,6 +41,7 @@
                     android:layout_gravity="center"
                     android:padding="10dp">
                     <EditText
+                        android:textColor="@color/black"
                         android:id="@+id/creerAlarmHeure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -54,6 +56,7 @@
                         android:textSize="30sp">
                     </TextView>
                     <EditText
+                        android:textColor="@color/black"
                         android:id="@+id/creerAlarmMinute"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
