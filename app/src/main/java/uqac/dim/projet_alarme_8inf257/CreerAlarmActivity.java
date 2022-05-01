@@ -2,7 +2,15 @@ package uqac.dim.projet_alarme_8inf257;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+
+import androidx.core.app.NotificationCompat;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -47,6 +57,14 @@ public class CreerAlarmActivity extends Activity {
         }catch(SQLException sqle){
             Log.v("DIM", "Error" + sqle.getMessage());
         }
+
+        Button btnTest = (Button) findViewById(R.id.testAlarm);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tester();
+            }
+        });
 
         Button btnSauvegarder = (Button) findViewById(R.id.saveAlarm);
         btnSauvegarder.setOnClickListener(new View.OnClickListener() {
@@ -291,6 +309,58 @@ public class CreerAlarmActivity extends Activity {
         Intent intent = new Intent(CreerAlarmActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void tester(){
+        db.addNewAlarm(
+                this.hour + ":" + this.minute,
+                this.idMiniGame,
+                this.idRingtone,
+                0,
+                week);
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this.getApplicationContext(), "notify_001");
+        Intent ii = new Intent(this.getApplicationContext(), ResultActivity.class);
+        ii.putExtra("minigameID", idMiniGame);
+        ii.putExtra("ringtoneID", idRingtone);
+        Log.v("AlarmSet", "Intent : " + ii.getIntExtra("minigameID", 0));
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, ii, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+        bigText.setBigContentTitle("Test Alarme");
+        bigText.setSummaryText("Alarme_8INF257");
+
+        mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
+        mBuilder.setContentTitle("Alarme");
+        mBuilder.setContentText("AAaaAAaAAAaaaAAAAaaHh");
+        mBuilder.setPriority(Notification.PRIORITY_MAX);
+        mBuilder.setStyle(bigText);
+        mBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        mBuilder.setLights(Color.RED, 3000, 3000);
+        mBuilder.setSound(Uri.parse("uri://sadfasdfasdf.mp3"));
+
+        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+// === Removed some obsoletes
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            String channelId = "Your_channel_id";
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Channel human readable title",
+                    NotificationManager.IMPORTANCE_HIGH);
+            mNotificationManager.createNotificationChannel(channel);
+            mBuilder.setChannelId(channelId);
+        }
+
+        mNotificationManager.notify(0, mBuilder.build());
+
+        MyMediaPlayer mmp = new MyMediaPlayer(idRingtone, this);
+        Log.v("DIM", "***** CONTEXT : " + this);
+        CommonMyMediaPlayer.player = mmp;
+        mmp.execute((Void) null);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

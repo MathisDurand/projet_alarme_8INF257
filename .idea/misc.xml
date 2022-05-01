@@ -31,10 +31,12 @@
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/drawable/rounded_border_right.xml" value="0.1" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/drawable/rounded_borders.xml" value="0.1" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/aucunealarme.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/changetheme.xml" value="0.1" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/choixsonnerie.xml" value="0.264" />
-        <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/creeralarme.xml" value="0.1" />
+        <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/creeralarme.xml" value="0.2" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/desactivation.xml" value="0.13385416666666666" />
+        <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/desactiver.xml" value="0.16530797101449277" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/descativation.xml" value="0.1" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/lang_page.xml" value="0.1" />
         <entry key="..\:/Users/wathi/AndroidStudioProjects/projet_alarme_8INF257/app/src/main/res/layout/minijeupassphrase.xml" value="0.259375" />

@@ -75,12 +75,6 @@ public class AlarmReciever extends BroadcastReceiver {
         Log.v("DIM", "***** CONTEXT : " + context);
         CommonMyMediaPlayer.player = mmp;
         mmp.execute((Void) null);
-
-        //playMusic(ringtoneId, context);
-
-        /*MediaPlayer mmp = mediaPlayer = MediaPlayer.create(context, R.raw.ringtone1);
-        mmp.prepareAsync();
-        mmp.start();*/
     }
 
 }

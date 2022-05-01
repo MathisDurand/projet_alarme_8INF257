@@ -72,6 +72,7 @@
 
     <!-- Shake Game Strings -->
     <string name="shakeRule">Shake the phone to disable !</string>
+    <string name="test">test</string>
 
 
 </resources>
