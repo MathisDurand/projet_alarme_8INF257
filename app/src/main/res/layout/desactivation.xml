@@ -10,6 +10,7 @@
         android:background="@xml/font"
         >
         <TextView
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="11dp"
@@ -36,6 +37,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/MG0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -48,6 +50,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/MG1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -60,6 +63,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/MG2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,6 +76,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/MG3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -84,6 +89,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/MG4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

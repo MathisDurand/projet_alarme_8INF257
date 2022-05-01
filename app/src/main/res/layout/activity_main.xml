@@ -18,7 +18,8 @@
             android:padding="40dp"
             android:text="@string/yourAlarms"
             android:gravity="center"
-            android:textSize="50sp">
+            android:textSize="50sp"
+            android:textColor="@color/black">
         </TextView>
 
         <ScrollView

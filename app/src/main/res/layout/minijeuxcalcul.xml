@@ -11,6 +11,7 @@
         >
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/TitleTheme"
             style="@style/TitleTheme"
             android:text="@string/calculMG"

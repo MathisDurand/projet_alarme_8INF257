@@ -10,6 +10,7 @@
         android:background="@xml/font"
         >
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/todo"
             style="@style/TitleTheme"
             android:text="@string/passphraseTitle"

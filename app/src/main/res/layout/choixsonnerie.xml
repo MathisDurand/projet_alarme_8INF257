@@ -11,6 +11,7 @@
         >
 
         <TextView
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="40dp"
@@ -39,6 +40,7 @@
 
                     android:orientation="vertical">
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/RT0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/RT1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -63,6 +66,7 @@
                         android:layout_marginBottom="7dp">
                     </RadioButton>
                     <RadioButton
+                        android:textColor="@color/black"
                         android:id="@+id/RT2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

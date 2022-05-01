@@ -10,6 +10,7 @@
         android:background="@xml/font"
         >
         <TextView
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="40dp"
@@ -30,6 +31,7 @@
             android:orientation="vertical">
 
             <Button
+                android:textColor="@color/black"
                 android:id="@+id/param_to_languages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -44,6 +46,7 @@
 
             </Button>
             <Button
+                android:textColor="@color/black"
                 android:id="@+id/param_to_themes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

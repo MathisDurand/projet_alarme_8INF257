@@ -10,6 +10,7 @@
         android:background="@xml/font"
         >
         <TextView
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="40dp"
@@ -69,6 +70,7 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp">
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckLundi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -80,6 +82,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckMardi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,6 +94,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckMercredi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,6 +106,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckJeudi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -113,6 +118,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckVendredi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,6 +130,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckSamedi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,6 +142,7 @@
 
                     </CheckedTextView>
                     <CheckedTextView
+                        android:textColor="@color/black"
                         android:id="@+id/CheckDimanche"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -157,6 +165,7 @@
                     android:layout_marginBottom="7dp"
                     android:onClick="choixsonnerie">
                     <TextView
+                        android:textColor="@color/black"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="@string/ringtoneTXT"
@@ -184,6 +193,7 @@
                     android:layout_marginBottom="7dp"
                     android:onClick="desactivation">
                     <TextView
+                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/desMethodStrnig"
