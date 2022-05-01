@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+/**
+ * linked to the activity to choose the Ringtone
+ */
 public class ChoixSonnerieActivity extends Activity {
     private int selectedRingtone;
     private int idRingtone = 0;
@@ -22,7 +25,7 @@ public class ChoixSonnerieActivity extends Activity {
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RingtoneChoice);
         this.idRingtone = getIntent().getIntExtra(DATA, this.idRingtone);
 
-        switch(idRingtone){
+        switch(idRingtone){ // if there is a default ringtone
             case 0:
                 radioGroup.check(R.id.RT0);
                 break;
@@ -57,6 +60,7 @@ public class ChoixSonnerieActivity extends Activity {
             }
         });
 
+        /* Save Button */
         Button btn = (Button) findViewById(R.id.OkRingtone);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

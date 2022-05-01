@@ -22,6 +22,11 @@ public class AlarmReciever extends BroadcastReceiver {
     private int ringtoneId;
     private Context ctx;
 
+    /**
+     * Called when receive an alarm, it will create the notification to call the resultActivity (Mini-Game)
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -29,6 +34,7 @@ public class AlarmReciever extends BroadcastReceiver {
 
         NotificationManager mNotificationManager;
 
+        /* CREATE THE NOTIFICATION */
         int minigameId= intent.getIntExtra("minigameID",0);
         int ringtoneId= intent.getIntExtra("ringtoneID",0);
         Log.v("AlarmSet", "ID_MG_AlarmReceiver : " + minigameId +" | "+ringtoneId);
@@ -44,6 +50,7 @@ public class AlarmReciever extends BroadcastReceiver {
         bigText.setBigContentTitle(intent.getStringExtra("data"));
         bigText.setSummaryText("Alarme_8INF257");
 
+        /* BUILD NOTIFICATION */
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
         mBuilder.setContentTitle("Alarme");

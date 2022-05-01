@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+// Not used :(
 public class ChangeThemeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

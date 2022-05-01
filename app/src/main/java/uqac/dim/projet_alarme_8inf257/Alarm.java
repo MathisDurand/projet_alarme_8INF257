@@ -6,9 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +21,11 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 public class Alarm {
+    /*
+    *   Class that represents any alarm stored in the Database
+    *   Alarm could be set(), unset(), display()
+     */
+
     private int id = 0;
     private String heure;
     private int idMiniGame;
@@ -56,7 +59,7 @@ public class Alarm {
         this.week = w;
 
         this.intentAlarm=new Intent(Intent.ACTION_VIEW);
-        this.intentAlarm.setData(Uri.parse("http://www.games-workshop.com"));
+        this.intentAlarm.setData(Uri.parse("http://www.games-workshop.com")); // default in case of it did not work, enjoy GW
     }
 
     public int getId() {
@@ -79,6 +82,11 @@ public class Alarm {
         return enable;
     }
 
+    /**
+     * This will generates the linear layout to show to the user this alarm
+     * @param ctx
+     * @return the LinerLayout representing one alarm
+     */
     @SuppressLint("ResourceType")
     public LinearLayout display(Context ctx){
         LinearLayout res = new LinearLayout(ctx);
@@ -88,6 +96,7 @@ public class Alarm {
         res.setOrientation(LinearLayout.VERTICAL);
         res.setPadding(20,20,20,20);
 
+        /* SWITCH */
         Switch s = new Switch(ctx);
         s.setChecked(this.enable != 0);
         LinearLayout.LayoutParams lps = new LinearLayout.LayoutParams(
@@ -106,6 +115,7 @@ public class Alarm {
             }
         });
 
+        /* INFOS */
         TextView tv = new TextView(ctx);
         LinearLayout.LayoutParams lpt = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -133,6 +143,7 @@ public class Alarm {
         lbtn.setLayoutParams(llpbtn);
         lbtn.setOrientation(LinearLayout.HORIZONTAL);
 
+        /* BUTTONS */
         Button btnM = new Button(ctx);
         btnM.setLayoutParams(llpbtn);
         btnM.setText(R.string.Edit);
@@ -165,6 +176,10 @@ public class Alarm {
         return res;
     }
 
+    /**
+     * When you click on modify button
+     * @param ctx
+     */
     public void clickToModify(Context ctx){
         Intent intent = new Intent(ctx, ModifierAlarmActivity.class);
         intent.putExtra(DATA, this.id);
@@ -182,19 +197,28 @@ public class Alarm {
         this.unsetAlarm(ctx);
     }
 
+    /**
+     * This will communicate with the DataBase to (un)set this alarm
+     * @param enable either if we should set or unset this alarm
+     * @param ctx Context where this alarm is (un)set
+     */
     public void changeEnable(boolean enable, Context ctx){
         if (enable){
             this.enable = 1;
-            this.db.enableByID(this.id);
+            this.db.enableByID(this.id);    // call to db
             this.setAlarm(ctx);
         }
         else {
             this.enable = 0;
-            this.db.disableByID(this.id);
+            this.db.disableByID(this.id);   // call to db
             this.unsetAlarm(ctx);
         }
     }
 
+    /**
+     *
+     * @param ctx Context where this alarm is update (will set or unset this alarm)
+     */
     public void updateAlarmStatus(Context ctx){
         if(this.enable == 0){
             this.unsetAlarm(ctx);
@@ -204,10 +228,15 @@ public class Alarm {
         }
     }
 
+    /**
+     * This will set the alarm at a precise date in the futur depending of the day in the week
+     * @param ctx the Context where this object has been set
+     */
     public void setAlarm(Context ctx){
         Log.v("DIM", "Alarm set");
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
 
+        /*  Creation of the notification   */
         Intent intent = new Intent(ctx, AlarmReciever.class);
         Log.v("DIM", "IDMG : " + idMiniGame);
         intent.putExtra("minigameID", idMiniGame);
@@ -218,6 +247,7 @@ public class Alarm {
         int time = 3600*Integer.parseInt(this.heure.substring(0, 2)) + 60*Integer.parseInt(this.heure.substring(3, 5))
                 - 3600*Calendar.getInstance().getTime().getHours() - 60*Calendar.getInstance().getTime().getMinutes() - Calendar.getInstance().getTime().getSeconds();
 
+        /*  Compute the timer to set the alarm  */
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         int index = 0;
@@ -226,14 +256,14 @@ public class Alarm {
         int ind_max = 7;
         int corr = 0;
 
-        if (time <0){
+        if (time <0){   // positive time
             time += 24*60*60;
             index = 1;
             ind_max = 8;
             corr = 1;
         }
 
-        while((!nextDayFound) && (index<ind_max)){
+        while((!nextDayFound) && (index<ind_max)){  // compute the number of days to delay
             if(week[(day-1 + index)%7] != 0){
                 nextDayFound = true;
             }
@@ -248,6 +278,10 @@ public class Alarm {
         am.setExact( AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000*time , pendingIntent );
     }
 
+    /**
+     * In order to unset this alarm in the AlarmManager
+     * @param ctx the Context where this object has been unset
+     */
     public void unsetAlarm(Context ctx){
         if (pending != null) {
             ctx.unregisterReceiver(alarmReceiver);

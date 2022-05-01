@@ -1,8 +1,8 @@
 package uqac.dim.projet_alarme_8inf257;
 
-import android.content.Context;
-import android.media.MediaPlayer;
-
+/**
+ * Used to cast the same MediaPlayer at any activity
+ */
 public class CommonMyMediaPlayer {
     public static MyMediaPlayer player;
 
