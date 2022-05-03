@@ -142,6 +142,8 @@ public class CreerAlarmActivity extends Activity {
         /* CHECK TEXTS for days in the week */
         CheckedTextView CheckLundi = (CheckedTextView)findViewById(R.id.CheckLundi);
         CheckLundi.setChecked(true);
+        CheckLundi.setTextColor(-1);
+        CheckLundi.setBackgroundColor(-16776961);
         CheckLundi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +164,8 @@ public class CreerAlarmActivity extends Activity {
         });
         CheckedTextView CheckMardi = (CheckedTextView)findViewById(R.id.CheckMardi);
         CheckMardi.setChecked(true);
+        CheckMardi.setTextColor(-1);
+        CheckMardi.setBackgroundColor(-16776961);
         CheckMardi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -177,11 +181,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckMardi.setTextColor(-1);
                     CheckMardi.setBackgroundColor(-16776961);
                 }
-                modifyWeek(1, CheckLundi.isChecked());
+                modifyWeek(1, CheckMardi.isChecked());
             }
         });
         CheckedTextView CheckMercredi = (CheckedTextView)findViewById(R.id.CheckMercredi);
         CheckMercredi.setChecked(true);
+        CheckMercredi.setTextColor(-1);
+        CheckMercredi.setBackgroundColor(-16776961);
         CheckMercredi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,11 +203,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckMercredi.setTextColor(-1);
                     CheckMercredi.setBackgroundColor(-16776961);
                 }
-                modifyWeek(2, CheckLundi.isChecked());
+                modifyWeek(2, CheckMercredi.isChecked());
             }
         });
         CheckedTextView CheckJeudi = (CheckedTextView)findViewById(R.id.CheckJeudi);
         CheckJeudi.setChecked(true);
+        CheckJeudi.setTextColor(-1);
+        CheckJeudi.setBackgroundColor(-16776961);
         CheckJeudi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -217,11 +225,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckJeudi.setTextColor(-1);
                     CheckJeudi.setBackgroundColor(-16776961);
                 }
-                modifyWeek(3, CheckLundi.isChecked());
+                modifyWeek(3, CheckJeudi.isChecked());
             }
         });
         CheckedTextView CheckVendredi = (CheckedTextView)findViewById(R.id.CheckVendredi);
         CheckVendredi.setChecked(true);
+        CheckVendredi.setTextColor(-1);
+        CheckVendredi.setBackgroundColor(-16776961);
         CheckVendredi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -237,11 +247,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckVendredi.setTextColor(-1);
                     CheckVendredi.setBackgroundColor(-16776961);
                 }
-                modifyWeek(4, CheckLundi.isChecked());
+                modifyWeek(4, CheckVendredi.isChecked());
             }
         });
         CheckedTextView CheckSamedi = (CheckedTextView)findViewById(R.id.CheckSamedi);
         CheckSamedi.setChecked(true);
+        CheckSamedi.setTextColor(-1);
+        CheckSamedi.setBackgroundColor(-16776961);
         CheckSamedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -257,11 +269,13 @@ public class CreerAlarmActivity extends Activity {
                     CheckSamedi.setTextColor(-1);
                     CheckSamedi.setBackgroundColor(-16776961);
                 }
-                modifyWeek(5, CheckLundi.isChecked());
+                modifyWeek(5, CheckSamedi.isChecked());
             }
         });
         CheckedTextView CheckDimanche = (CheckedTextView)findViewById(R.id.CheckDimanche);
         CheckDimanche.setChecked(true);
+        CheckDimanche.setTextColor(-1);
+        CheckDimanche.setBackgroundColor(-16776961);
         CheckDimanche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -277,7 +291,7 @@ public class CreerAlarmActivity extends Activity {
                     CheckDimanche.setTextColor(-1);
                     CheckDimanche.setBackgroundColor(-16776961);
                 }
-                modifyWeek(6, CheckLundi.isChecked());
+                modifyWeek(6, CheckDimanche.isChecked());
             }
         });
     }
