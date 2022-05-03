@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 
+/**
+ * That's the activity called when an alarm is triggered. It will open the right mini-game activity after a click on the Button
+ */
 public class ResultActivity extends Activity {
     MediaPlayer mediaPlayer;
     private int minigameId;
@@ -40,29 +43,21 @@ public class ResultActivity extends Activity {
         switch(minigameId){
             case 1:
                 i = new Intent(this, MiniJeuxCalcul.class);
-                startActivity(i);
                 break;
             case 2:
                 i = new Intent(this, MiniJeuxCliqueActivity.class);
-                startActivity(i);
                 break;
             case 3:
                 i = new Intent(this, ShakeActivity.class);
-                startActivity(i);
                 break;
             case 4:
                 i = new Intent(this, PassphraseActivity.class);
-                startActivity(i);
                 break;
             default:
                 CommonMyMediaPlayer.player.stopMusic();
                 i = new Intent(this, MainActivity.class);
-                startActivity(i);
                 break;
         }
-    }
-
-    public void stopMusic(){
-        //((MainActivity) this.getParent()).getMmp().stopMusic();
+        startActivity(i);
     }
 }

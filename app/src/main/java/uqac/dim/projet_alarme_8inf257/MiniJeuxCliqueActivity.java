@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ *  100 clicks mini-game
+ */
 public class MiniJeuxCliqueActivity extends Activity {
     private final int NOMBRE = 100;
     private int cliqueRestant;
@@ -30,6 +33,9 @@ public class MiniJeuxCliqueActivity extends Activity {
         });
     }
 
+    /**
+     * this will count the number of clicks
+     */
     private void decrementer() {
         cliqueRestant --;
         if (cliqueRestant > 0) {

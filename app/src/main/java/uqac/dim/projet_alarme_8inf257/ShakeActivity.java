@@ -16,6 +16,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.Objects;
+
+/**
+ * Mini-Game that deactivate the alarm by shaking the phone
+ */
 public class ShakeActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private float mAccel;
@@ -41,6 +45,10 @@ public class ShakeActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "WAKE UP", Toast.LENGTH_SHORT).show();
 
     }
+
+    /**
+     * create a listener to measure the shaking
+     */
     private final SensorEventListener mSensorListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
@@ -52,7 +60,7 @@ public class ShakeActivity extends AppCompatActivity {
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta;
 
-            if(mAccel > 40) {
+            if(mAccel > 40) {   // Shaking strong enough
                 CommonMyMediaPlayer.player.stopMusic();
                 Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();
 

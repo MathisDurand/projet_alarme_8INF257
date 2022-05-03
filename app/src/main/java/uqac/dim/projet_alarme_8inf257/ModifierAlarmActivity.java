@@ -25,7 +25,11 @@ import androidx.core.app.NotificationCompat;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ *  Activity launched when the user wants the edit an alarm
+ */
     public class ModifierAlarmActivity extends Activity {
+        /* DATA of te Alarm */
         private int idRingtone = 0;
         private int idMiniGame = 0;
         private String hour = "00";
@@ -34,6 +38,8 @@ import java.sql.SQLException;
         private int[] week = new int[]{1, 1, 1, 1, 1, 1, 1}; // Monday -> Sunday
         private DBAlarmHandler db;
 
+
+        /* STATIC NAME */
         static final String DATA = "data";
         static final String IDR = "idRingstone";
         static final String IDM = "idMiniGame";
@@ -54,6 +60,7 @@ import java.sql.SQLException;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.creeralarme);
 
+            // Get all of the Data
             idAlarm = this.getIntent().getIntExtra(DATA, idAlarm);
             minute = this.getIntent().getStringExtra(MINUTE);
             hour = this.getIntent().getStringExtra(HOUR);
@@ -62,6 +69,7 @@ import java.sql.SQLException;
 
             Log.v("DIM", idAlarm + "");
 
+            // Create or Open the DataBase
             db = new DBAlarmHandler(this);
             try {
                 db.createDatabase();
@@ -78,6 +86,7 @@ import java.sql.SQLException;
                 Log.v("DIM", "Error" + sqle.getMessage());
             }
 
+            /* BUTTONS */
             Button btnTest = (Button) findViewById(R.id.testAlarm);
             btnTest.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -93,6 +102,7 @@ import java.sql.SQLException;
                 }
             });
 
+            /*EDIT TEXTS */
             EditText txtH = (EditText) findViewById(R.id.creerAlarmHeure);
             txtH.setText(hour);
             txtH.addTextChangedListener(new TextWatcher() {
@@ -113,6 +123,7 @@ import java.sql.SQLException;
                 @Override
                 public void onTextChanged(CharSequence s, int start,
                                           int before, int count) {
+                    // Verify if this has the Hour/Minute format
                     if((s.length() != 0) && (Integer.parseInt(s.toString()) < 24))
                         hour = s.toString();
                     if(s.length() == 1){
@@ -142,6 +153,7 @@ import java.sql.SQLException;
                 @Override
                 public void onTextChanged(CharSequence s, int start,
                                           int before, int count) {
+                    // Verify if this has the Hour/Minute format
                     if((s.length() != 0) && (Integer.parseInt(s.toString()) < 60))
                         minute = s.toString();
                     if(s.length() == 1){
@@ -151,6 +163,7 @@ import java.sql.SQLException;
                 }
             });
 
+            /* CHECK BOXES for the days of week */
             CheckedTextView CheckLundi = (CheckedTextView)findViewById(R.id.CheckLundi);
             CheckLundi.setChecked(true);
             CheckLundi.setOnClickListener(new View.OnClickListener() {
@@ -293,6 +306,11 @@ import java.sql.SQLException;
             });
         }
 
+    /**
+     *
+     * @param jour day of the week (Monday = 0; Sunday = 6)
+     * @param isChecked boolean if this day is checked (check box)
+     */
         public void modifyWeek(int jour, boolean isChecked){
             week[jour] = isChecked ? 1 : 0;
         }
@@ -320,7 +338,10 @@ import java.sql.SQLException;
             startActivityForResult(intent, PICK_MINIGAME_REQUEST);
         }
 
-        public void sauvegarder(){
+    /**
+     *  Save the new alarm in the DataBase and launch the main activity
+     */
+    public void sauvegarder(){
             Log.v("DIM", "Hour chaged : " + this.hour + ":" + this.minute);
 
             ContentValues cv = new ContentValues();
@@ -335,13 +356,18 @@ import java.sql.SQLException;
             startActivity(intent);
         }
 
-        public void tester(){
+    /**
+     *  allow the user to test the alarm (this alarm is saved as a deactivated alarm
+     *  this will trigger the alarm as it should be triggered when the button is clicked
+     */
+    public void tester(){
             db.addNewAlarm(
                     this.hour + ":" + this.minute,
                     this.idMiniGame,
                     this.idRingtone,
                     0,
                     week);
+            /* CREATE the notification */
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(this.getApplicationContext(), "notify_001");
             Intent ii = new Intent(this.getApplicationContext(), ResultActivity.class);
@@ -354,6 +380,7 @@ import java.sql.SQLException;
             bigText.setBigContentTitle("Test Alarme");
             bigText.setSummaryText("Alarme_8INF257");
 
+            /* BUILD the notification */
             mBuilder.setContentIntent(pendingIntent);
             mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
             mBuilder.setContentTitle("Alarme");
@@ -386,20 +413,24 @@ import java.sql.SQLException;
             mmp.execute((Void) null);
         }
 
+    /**
+     *  Receive the data from the two children-activities to set the alarm
+     */
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // call-back function
             Log.v("DIM", "INFOS received");
             super.onActivityResult(requestCode, resultCode, data);
             Log.v("DIM", "oui");
-            if (requestCode == PICK_RINGTONE_REQUEST) {
+
+            if (requestCode == PICK_RINGTONE_REQUEST) { // choose ringtone activity
                 if (resultCode == RESULT_OK) {
                     this.idRingtone = data.getIntExtra(DATA, this.idRingtone);
                     Log.v("DIM", "change Ringtone : "+data.getStringExtra(DATA));
                 }
                 else{Log.v("DIM", "failed");}
             }
-            else if (requestCode == PICK_MINIGAME_REQUEST) {
+            else if (requestCode == PICK_MINIGAME_REQUEST) {    //  choose minigame activity
                 if (resultCode == RESULT_OK) {
                     this.idMiniGame = data.getIntExtra(DATA, this.idMiniGame);
                     Log.v("DIM", "change Minigame : "+data.getStringExtra(DATA));

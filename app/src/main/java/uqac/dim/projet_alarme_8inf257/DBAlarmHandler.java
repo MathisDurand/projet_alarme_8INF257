@@ -53,7 +53,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
     private static final String NAME_RINGTONE = "name";
 
 
-    // creating a constructor for our database handler.
+    /**
+     *  creating a constructor for our database handler.
+     */
     public DBAlarmHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.myContext = context;
@@ -71,6 +73,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * @return Does my DataBase exist ?
+     */
     private boolean checkDataBase(){
 
         Log.v("DIM", "checkDataBase");
@@ -150,11 +155,15 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         myOutput.close();
     }
 
-    // below method is for creating a database by running a sqlite query
+    /**
+     *  below method is for creating a database by running a sqlite query
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {}
 
-    // this method is use to add new course to our sqlite database.
+    /**
+     * this method is use to add new course to our sqlite database.
+     */
     public void addNewAlarm(String hour, int minigameID, int ringtoneID, int enable, int[] week) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -179,6 +188,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Currently not in use
+     */
     public void addNewMinigame(String name) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -192,6 +204,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Currently not in use
+     */
     public void addNewRingtone(String name) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -205,11 +220,15 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
+    /**
+     * this will send a query to select all the existing alarms
+     * @return LinkedList of alarm Objects
+     */
     public LinkedList<Alarm> selectAllAlarms(){
         LinkedList<Alarm> res = new LinkedList();
+        // SQL query
         Cursor cursor = myDataBase.rawQuery("select * from " + TABLE_NAME_SAVED_ALARMS + " order by " + HOUR_SAVED_ALARMS,null);
-        if (cursor.getCount() > 0) {
+        if (cursor.getCount() > 0) {    // while our cursor has something
             cursor.moveToFirst();
             do {
                 int id = Integer.parseInt(cursor.getString(0));
@@ -224,6 +243,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
                         Integer.parseInt(cursor.getString(8)),
                         Integer.parseInt(cursor.getString(9)),
                         Integer.parseInt(cursor.getString(10))}; // Saturday
+                // add this new element to our list
                 res.add(new Alarm(id, hourSaved, idMiniGame, idRingtone,enable, week, this));
             } while (cursor.moveToNext());
             cursor.close();
@@ -231,6 +251,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         return res;
     }
 
+    /**
+     * Disables an alarm using its ID
+     */
     public void disableByID(int id){
         ContentValues cv = new ContentValues();
         cv.put(ENABLE_SAVED_ALARMS,0);
@@ -238,6 +261,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         Log.v("DIM", getDataDeLaBD());
         Log.v("DIM", "disable alarm with id : "+id);
     }
+    /**
+     * Ables an alarm using its ID
+     */
     public void enableByID(int id){
         ContentValues cv = new ContentValues();
         cv.put(ENABLE_SAVED_ALARMS,1);
@@ -247,17 +273,18 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         Log.v("DIM", "enable alarm with id : "+id);
     }
 
+    /**
+     * Deletes an alarm using its ID
+     */
     public void deleteByID(int id){
         myDataBase.delete(TABLE_NAME_SAVED_ALARMS, ID_SAVED_ALARMS+" = ?", new String[]{String.valueOf(id)});
     }
 
+    /**
+     *  If a newer version exists
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // this method is called to check if the table exists already.
-        /*db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_MINIGAMES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_RINGTONE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_SAVED_ALARMS);
-        onCreate(db);*/
         if(newVersion>oldVersion){
             try {
                 copyDataBase();
@@ -273,6 +300,9 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
     }
 
+    /**
+     *  Shows a part of the DataBase
+     */
     public String getDataDeLaBD(){
 
         StringBuilder sb = new StringBuilder();
@@ -281,7 +311,7 @@ public class DBAlarmHandler extends SQLiteOpenHelper {
         Log.v("DIM", "isReadOnly : " + myDataBase.isReadOnly());
         Log.v("DIM", "NAME : " + myDataBase.getPath());
 
-        Cursor cursor = myDataBase.rawQuery("select * from savedAlarms",null);
+        Cursor cursor = myDataBase.rawQuery("select * from savedAlarms",null);  // Cursor showing the result of the query to get the data
 
         Log.v("DIM", "MyDataBase : " + myDataBase.getPath() + " */* " + myDataBase.toString());
 

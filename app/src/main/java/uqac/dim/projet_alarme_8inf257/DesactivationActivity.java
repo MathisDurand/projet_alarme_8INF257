@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+/**
+ *  Activity to set the way of deactivation of an alarm
+ */
 public class DesactivationActivity extends Activity {
     private int selectedMiniGame;
     private int idRingtone = 0;
@@ -22,7 +25,7 @@ public class DesactivationActivity extends Activity {
         this.idRingtone = getIntent().getIntExtra(DATA, this.idRingtone);
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.MiniGameChoice);
-        switch(idRingtone){
+        switch(idRingtone){ // if there is a default option or if an option has already been chosen
             case 0:
                 radioGroup.check(R.id.MG0);
                 break;
@@ -41,6 +44,7 @@ public class DesactivationActivity extends Activity {
             default:
         }
 
+        // Listener for the radio buttons
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override
@@ -100,8 +104,10 @@ public class DesactivationActivity extends Activity {
     }
 
 
+    /**
+     *  gives the information back to the modification/creation of the alarm
+     */
     public void sendInfos(){
-        // gives the information back
         Intent res = new Intent();
         res.putExtra(DATA, selectedMiniGame);
         setResult(RESULT_OK, res);

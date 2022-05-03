@@ -1,14 +1,12 @@
 package uqac.dim.projet_alarme_8inf257;
 
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
-import android.os.IBinder;
 
-import androidx.annotation.Nullable;
-
+/**
+ *  Used to play and stop music in an asynchronous way
+ */
 public class MyMediaPlayer extends AsyncTask<Void, Void, Void> {
     private static final String ACTION_PLAY = "com.example.action.PLAY";
     private MediaPlayer mediaPlayer = null;
@@ -21,10 +19,11 @@ public class MyMediaPlayer extends AsyncTask<Void, Void, Void> {
         this.ctx = context;
     }
 
-
-
+    /**
+     *  Music is ON !
+     */
     public void setMusic() {
-        switch (ringtoneID) {
+        switch (ringtoneID) {   // there is only two Ringtone for this version
             case 1:
                 mediaPlayer = MediaPlayer.create(ctx, R.raw.ringtone1);
                 mediaPlayer.start();
@@ -39,15 +38,19 @@ public class MyMediaPlayer extends AsyncTask<Void, Void, Void> {
             default:
                 break;
         }
-
-        mediaPlayer.setLooping(true); // Set looping
-        //mediaPlayer.setVolume(1.0f, 1.0f);
+        mediaPlayer.setLooping(true);
     }
 
+    /**
+     *  Music is OFF !
+     */
     public void stopMusic() {
         mediaPlayer.stop();
     }
 
+    /**
+     *  Is Asynchronous then we must have the description of doInBackground
+     */
     @Override
     protected Void doInBackground(Void... voids) {
         setMusic();

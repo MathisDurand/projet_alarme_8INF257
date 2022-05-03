@@ -16,14 +16,13 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
 
     private DBAlarmHandler db;
-    //private MyMediaPlayer mmp = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTheme(R.style.ThemeRouge);
         setContentView(R.layout.activity_main);
 
+        /* Create or Open the DataBase */
         db = new DBAlarmHandler(this);
         try {
             db.createDatabase();
@@ -44,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Log.v("DIM", db.getDataDeLaBD());
         Log.v("DIM", "HEY");
 
+        /* BUTTONS */
         Button btnCreerAlarme = (Button) findViewById(R.id.main_to_creeralarme);
         btnCreerAlarme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //db.addNewAlarm("8:30", 1, 2);
+        /* DISPLAY the alarms in the DataBase */
         db.getDataDeLaBD();
         db.selectAllAlarms();
         displayAlarms();
     }
 
+    /**
+     *  This will add the display of all the alarm stored in the DataBase (Linear Layout edited with all the linearLayout of each alarm)
+     */
     public void displayAlarms(){
         LinkedList<Alarm> allAlarms = db.selectAllAlarms();
         LinearLayout ll = (LinearLayout) findViewById(R.id.show_alarms);
@@ -77,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-   /* public void setMmp(MyMediaPlayer mmp){this.mmp = mmp;}
-
-    public MyMediaPlayer getMmp(){return this.mmp;}*/
 
     @Override
     protected void onPause() {

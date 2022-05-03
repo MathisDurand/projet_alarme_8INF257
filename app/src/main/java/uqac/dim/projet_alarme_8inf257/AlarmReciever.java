@@ -24,8 +24,6 @@ public class AlarmReciever extends BroadcastReceiver {
 
     /**
      * Called when receive an alarm, it will create the notification to call the resultActivity (Mini-Game)
-     * @param context
-     * @param intent
      */
     @Override
     public void onReceive(Context context, Intent intent) {

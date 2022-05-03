@@ -26,6 +26,9 @@ import androidx.core.app.NotificationCompat;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * This activity is launched when the user wants to create an activity
+ */
 public class CreerAlarmActivity extends Activity {
     private int idRingtone = 0;
     private int idMiniGame = 0;
@@ -43,6 +46,7 @@ public class CreerAlarmActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creeralarme);
 
+        /* Create or Open the Data Base */
         db = new DBAlarmHandler(this);
         try {
             db.createDatabase();
@@ -59,6 +63,7 @@ public class CreerAlarmActivity extends Activity {
             Log.v("DIM", "Error" + sqle.getMessage());
         }
 
+        /* BUTTONS */
         Button btnTest = (Button) findViewById(R.id.testAlarm);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +80,7 @@ public class CreerAlarmActivity extends Activity {
             }
         });
 
+        /* EDIT TEXTS */
         EditText txtH = (EditText) findViewById(R.id.creerAlarmHeure);
         txtH.addTextChangedListener(new TextWatcher() {
 
@@ -94,6 +100,7 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
+                // Verify if this has the Hour/Minute format
                 if((s.length() != 0) && (Integer.parseInt(s.toString()) < 24))
                     hour = s.toString();
                 if(s.length() == 1){
@@ -122,6 +129,7 @@ public class CreerAlarmActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
+                // Verify if this has the Hour/Minute format
                 if((s.length() != 0) && (Integer.parseInt(s.toString()) < 60))
                     minute = s.toString();
                 if(s.length() == 1){
@@ -130,6 +138,8 @@ public class CreerAlarmActivity extends Activity {
                 Log.v("DIM",minute);
             }
         });
+
+        /* CHECK TEXTS for days in the week */
         CheckedTextView CheckLundi = (CheckedTextView)findViewById(R.id.CheckLundi);
         CheckLundi.setChecked(true);
         CheckLundi.setOnClickListener(new View.OnClickListener() {
@@ -272,6 +282,11 @@ public class CreerAlarmActivity extends Activity {
         });
     }
 
+    /**
+     *
+     * @param jour day of the week (Monday = 0; Sunday = 6)
+     * @param isChecked boolean if this day is checked (check box)
+     */
     public void modifyWeek(int jour, boolean isChecked){
         week[jour] = isChecked ? 1 : 0;
     }
@@ -299,6 +314,9 @@ public class CreerAlarmActivity extends Activity {
         startActivityForResult(intent, PICK_MINIGAME_REQUEST);
     }
 
+    /**
+     *  Save the new alarm in the DataBase and launch the main activity
+     */
     public void sauvegarder(){
         Log.v("DIM", "Hour changed : " + this.hour + ":" + this.minute);
         db.addNewAlarm(
@@ -312,6 +330,10 @@ public class CreerAlarmActivity extends Activity {
         startActivity(intent);
     }
 
+    /**
+     *  allow the user to test the alarm (this alarm is saved as a deactivated alarm
+     *  this will trigger the alarm as it should be triggered when the button is clicked
+     */
     public void tester(){
         db.addNewAlarm(
                 this.hour + ":" + this.minute,
@@ -363,7 +385,9 @@ public class CreerAlarmActivity extends Activity {
         mmp.execute((Void) null);
     }
 
-
+    /**
+     *  Receive the data from the two children-activities to set the alarm
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // call-back function

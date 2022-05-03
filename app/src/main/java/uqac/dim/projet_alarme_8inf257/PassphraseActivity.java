@@ -9,7 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
+/**
+ * Mini-Game where the user must enter a sentence to deactivate the alarm
+ */
 public class PassphraseActivity extends AppCompatActivity {
     EditText inputText;
     Button buttonVal;
@@ -25,7 +27,7 @@ public class PassphraseActivity extends AppCompatActivity {
 
 
     private void TestPhrase(){
-        if(inputText.getText().length() >10){
+        if(inputText.getText().length() >10){   // the sentence is long enough
             CommonMyMediaPlayer.player.stopMusic();
 
             Toast.makeText(getApplicationContext(), "Well done ;)", Toast.LENGTH_LONG).show();

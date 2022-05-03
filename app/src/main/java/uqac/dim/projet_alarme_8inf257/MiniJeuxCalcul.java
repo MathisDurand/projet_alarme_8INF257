@@ -1,28 +1,21 @@
 package uqac.dim.projet_alarme_8inf257;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.core.widget.TextViewCompat;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *  We hope you're awake enough, it's time to do some basic math
+ */
 public class MiniJeuxCalcul extends Activity {
     private int nombre1 = 0;
     private int nombre2 = 0;
@@ -45,6 +38,10 @@ public class MiniJeuxCalcul extends Activity {
             }
         });
     }
+
+    /**
+     * create an equation to solve and store the result
+     */
     public void commencer(){
         TextView calcul = (TextView) findViewById(R.id.CalculTextView);
         Random random = new Random();
@@ -75,6 +72,9 @@ public class MiniJeuxCalcul extends Activity {
         }
     }
 
+    /**
+     *  score > 5 -> you won, it stops the alarm
+     */
     public void score(){
         TextView scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         scoreTextView.setText(score+"/5");
@@ -88,6 +88,9 @@ public class MiniJeuxCalcul extends Activity {
         }
     }
 
+    /**
+     * this will verify the answer and launch a new round if the score is under or equal to 5
+     */
     public void valider(){
         EditText reponse = (EditText) findViewById(R.id.reponse);
         String numero = reponse.getText().toString();
@@ -96,7 +99,7 @@ public class MiniJeuxCalcul extends Activity {
         Log.v("DIM", numero);
         TextView calcul = (TextView) findViewById(R.id.CalculTextView);
         Timer t = new Timer();
-        if(result.equals(numero)){
+        if(result.equals(numero)){  // Great job + timed green answer
             Log.v("DIM", "Bonne réponse");
             calcul.setBackgroundColor(-16711936);
             TimerTask task = new TimerTask() {
@@ -116,7 +119,8 @@ public class MiniJeuxCalcul extends Activity {
                 }
             };
             t.schedule(task, 1000);
-        }else{
+        }
+        else{  // Bad answer + timed red answer
             Log.v("DIM", "Mauvaise réponse");
             calcul.setBackgroundColor(-65536);
             TimerTask task = new TimerTask() {

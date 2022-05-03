@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ *  the Activity representing the parameters of the application
+ */
+
 public class Parametre extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
